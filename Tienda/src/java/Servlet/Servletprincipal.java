@@ -54,7 +54,7 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Persona.Cargos";
+                String sqlQuery = "select * from Cargos";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
@@ -86,21 +86,21 @@ public class Servletprincipal extends HttpServlet {
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelEmpleados> listaEmpleados = new ArrayList<>();
+                ArrayList<viewmodelempleados> listaEmpleados = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelEmpleados empleado = new ViewModelEmpleados();
-                    empleado.setId_Empleado(rs.getInt("Id_Empleado"));
-                    empleado.setId_Empleado(rs.getInt("Id_Empleado"));
-                    empleado.setDui_Empleado(rs.getString("DUI_Empleado"));
-                    empleado.setIsss_Empleado(rs.getInt("ISSS_Empleado"));
+                    viewmodelempleados empleado = new viewmodelempleados();
+                    empleado.setID_Usuario(rs.getInt("Id_Empleado"));
+                    empleado.setID_Empleado(rs.getInt("Id_Empleado"));
+                    empleado.setDUI_Empleado(rs.getString("DUI_Empleado"));
+                    empleado.setID_Cargo(rs.getInt("ID_Cargo"));
                     empleado.setNombresEmpleado(rs.getString("NombresEmpleado"));
                     empleado.setApellidosEmpleado(rs.getString("ApellidosEmpleado"));
                     empleado.setFechaNacEmpleado(rs.getDate("FechaNacEmpleado"));
                     empleado.setTelefono(rs.getString("Telefono"));
                     empleado.setCorreo(rs.getString("Correo"));
-                    empleado.setId_Cargo(rs.getInt("Id_Cargo"));
-                    empleado.setId_Direccion(rs.getInt("Id_Direccion"));
+                    
+                    empleado.setDireccion(rs.getString("Direccion"));
 
                     listaEmpleados.add(empleado);
                 }
@@ -154,19 +154,18 @@ public class Servletprincipal extends HttpServlet {
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelClientes> listaClientes = new ArrayList<>();
+                ArrayList<viewmodelclientes> listaClientes = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelClientes cliente = new ViewModelClientes();
-                    cliente.setId_Cliente(rs.getInt("Id_Cliente"));
+                    viewmodelclientes cliente = new viewmodelclientes();
+                    cliente.setID_Cliente(rs.getInt("ID_Cliente"));
                     cliente.setNombresCliente(rs.getString("NombresCliente"));
                     cliente.setApellidosCliente(rs.getString("ApellidosCliente"));
-                    cliente.setDuiCliente(rs.getString("DUI_Cliente"));
+                    cliente.setDUI_Cliente(rs.getString("DUI_Cliente"));
                     cliente.setTelefono(rs.getString("Telefono"));
                     cliente.setCorreo(rs.getString("Correo"));
-                    cliente.setId_Direccion(rs.getInt("Id_Direccion"));
-                    cliente.setUsuario(rs.getString("Usuario"));
-                    cliente.setClave(rs.getString("Clave"));
+                    cliente.setID_Direccion(rs.getInt("Id_Direccion"));
+                    cliente.setID_Usuario(rs.getInt("ID_Isuario"));
                     listaClientes.add(cliente);
                 }
                 request.setAttribute("listaClientes", listaClientes);
@@ -214,7 +213,7 @@ public class Servletprincipal extends HttpServlet {
     }//Fin Inventario
     //Fin Inventarios
     //Inicio Productos
-    public void mostrarProducto(HttpServletRequest request, HttpServletResponse response) {
+    public void mostrarArticulo(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
@@ -248,7 +247,7 @@ public class Servletprincipal extends HttpServlet {
     }
     //Fin Productos
     //Descuento
-    public void mostrarDescuento(HttpServletRequest request, HttpServletResponse response) {
+    public void mostrarReserva(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
@@ -279,7 +278,7 @@ public class Servletprincipal extends HttpServlet {
     }
     //Fin Descuento
     //Inicio Compras
-    public void mostrarCompras(HttpServletRequest request, HttpServletResponse response) {
+    public void mostrarIngreso(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
@@ -508,30 +507,28 @@ public class Servletprincipal extends HttpServlet {
 
         //El ID de los empleados es autoincrementable
         String DUI_Empleado = request.getParameter("DUI_Empleado");
-        String ISSS_Empleado = request.getParameter("ISSS_Empleado");
-        String nombresEmpleado = request.getParameter("nombresEmpleado");
-        String apellidosEmpleado = request.getParameter("apellidosEmpleado");
-        String fechaNacEmpleado = request.getParameter("fechaNacEmpleado");
-        String telefonoEmpleado = request.getParameter("telefonoEmpleado");
-        String correo = request.getParameter("correo");
+        String nombresEmpleado = request.getParameter("NombresEmpleado");
+        String apellidosEmpleado = request.getParameter("ApellidosEmpleado");
+        String fechaNacEmpleado = request.getParameter("FechaNacEmpleado");
+        String telefonoEmpleado = request.getParameter("Telefono");
+        String correo = request.getParameter("Correo");
         String ID_Cargo = request.getParameter("ID_Cargo");
-        String ID_Direccion = request.getParameter("ID_Direccion");
+        String Direccion = request.getParameter("Direccion");
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "insert into Persona.Empleados values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "insert into Persona.Empleados values (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, DUI_Empleado);
-                pstmt.setString(2, ISSS_Empleado);
                 pstmt.setString(3, nombresEmpleado);
                 pstmt.setString(4, apellidosEmpleado);
                 pstmt.setString(5, fechaNacEmpleado);
                 pstmt.setString(6, telefonoEmpleado);
                 pstmt.setString(7, correo);
                 pstmt.setString(8, ID_Cargo);
-                pstmt.setString(9, ID_Direccion);
+                pstmt.setString(9, Direccion);
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {
                     request.getSession().setAttribute("exito", true);
@@ -650,7 +647,6 @@ public class Servletprincipal extends HttpServlet {
         //CAPTURA DE VARIABLES
         String Id_Empleado = request.getParameter("Id_Empleado");
         String DUI_Empleado = request.getParameter("DUI_Empleado");
-        String ISSS_Empleado = request.getParameter("ISSS_Empleado");
         String nombresEmpleado = request.getParameter("nombresEmpleado");
         String apellidosEmpleado = request.getParameter("apellidosEmpleado");
         String fechaNacEmpleado = request.getParameter("fechaNacEmpleado");
@@ -666,7 +662,6 @@ public class Servletprincipal extends HttpServlet {
 
                 String sql = "update Persona.Empleados set "
                         + "DUI_Empleado='" + DUI_Empleado + "', "
-                        + "ISSS_Empleado='" + ISSS_Empleado + "', "
                         + "NombresEmpleado='" + nombresEmpleado + "', "
                         + "ApellidosEmpleado='" + apellidosEmpleado + "', "
                         + "FechaNacEmpleado='" + fechaNacEmpleado + "', "
@@ -809,7 +804,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "delete from Persona.Empleados where Id_Empleado='" + ID_Empleado + "'";
+                String sql = "delete from Empleados where ID_Empleado='" + ID_Empleado + "'";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {

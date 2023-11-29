@@ -1,14 +1,14 @@
 /*
 create table Empleados(
-	ID_Empleado int primary key identity(1, 1),
+    ID_Empleado int primary key identity(1, 1),
     DUI_Empleado varchar(10) not null,
     NombresEmpleado varchar(60) not null,
     ApellidosEmpleado varchar(60) not null,
-	ID_Usuario int not null,
+    ID_Usuario int not null,
     FechaNacEmpleado date not null,
     Telefono varchar(10) not null,
     Correo varchar(100),
-	Direccion nvarchar(250),
+    Direccion nvarchar(250),
     ID_Cargo int not null
 );*/
 package models;
