@@ -9,51 +9,78 @@ package models;
 
 
 public class viewmodelusuarios {
-    private int id_Usuario;
-    private int id_Rol;
+    private int ID_Usuario;
+    private int ID_Rol;
     private String usuario;
     private String clave;
 
-    public viewmodelusuarios() {
-    }
-
-    public viewmodelusuarios(int id_Usuario, int id_Rol, String usuario, String clave) {
-        this.id_Usuario = id_Usuario;
-        this.id_Rol = id_Rol;
+    public viewmodelusuarios(int ID_Usuario, int ID_Rol, String usuario, String clave) {
+        this.ID_Usuario = ID_Usuario;
+        this.ID_Rol = ID_Rol;
         this.usuario = usuario;
         this.clave = clave;
     }
 
-    public int getId_Usuario() {
-        return id_Usuario;
+    public viewmodelusuarios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setId_Usuario(int id_Usuario) {
-        this.id_Usuario = id_Usuario;
+    /**
+     * @return the ID_Usuario
+     */
+    public int getID_Usuario() {
+        return ID_Usuario;
     }
 
-    public int getId_Rol() {
-        return id_Rol;
+    /**
+     * @param ID_Usuario the ID_Usuario to set
+     */
+    public void setID_Usuario(int ID_Usuario) {
+        this.ID_Usuario = ID_Usuario;
     }
 
-    public void setId_Rol(int id_Rol) {
-        this.id_Rol = id_Rol;
+    /**
+     * @return the ID_Rol
+     */
+    public int getID_Rol() {
+        return ID_Rol;
     }
 
+    /**
+     * @param ID_Rol the ID_Rol to set
+     */
+    public void setID_Rol(int ID_Rol) {
+        this.ID_Rol = ID_Rol;
+    }
+
+    /**
+     * @return the usuario
+     */
     public String getUsuario() {
         return usuario;
     }
 
+    /**
+     * @param usuario the usuario to set
+     */
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
+    /**
+     * @return the clave
+     */
     public String getClave() {
         return clave;
     }
 
+    /**
+     * @param clave the clave to set
+     */
     public void setClave(String clave) {
         this.clave = clave;
     }
+
+    
     
 }

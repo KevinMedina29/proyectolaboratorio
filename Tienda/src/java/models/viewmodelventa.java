@@ -16,102 +16,169 @@ import java.util.Date;
 
 
 public class viewmodelventa {
-    private int id_Venta;
-    private int id_Empleado;
-    private int id_Cliente;
-    private String tipo_Comprobante;
-    private String serie_Comprobante;
+    private int ID_Venta;
+    private int ID_Empleado;
+    private int ID_Cliente;
+    private String Tipo_Comprobante;
+    private String Serie_Comprobante;
+    private String Num_Comprobante;
     private Date fecha;
-    private int id_Metodo_Pago;
+    private int ID_Metodo_Pago;
     private String estado;
-    private int id_Reserva;
+    private int ID_Reserva;
 
-    public viewmodelventa() {
-    }
-
-    public viewmodelventa(int id_Venta, int id_Empleado, int id_Cliente, String tipo_Comprobante, String serie_Comprobante, Date fecha, int id_Metodo_Pago, String estado, int id_Reserva) {
-        this.id_Venta = id_Venta;
-        this.id_Empleado = id_Empleado;
-        this.id_Cliente = id_Cliente;
-        this.tipo_Comprobante = tipo_Comprobante;
-        this.serie_Comprobante = serie_Comprobante;
+    public viewmodelventa(int ID_Venta, int ID_Empleado, int ID_Cliente, String Tipo_Comprobante, String Serie_Comprobante, String Num_Comprobante, Date fecha, int ID_Metodo_Pago, String estado, int ID_Reserva) {
+        this.ID_Venta = ID_Venta;
+        this.ID_Empleado = ID_Empleado;
+        this.ID_Cliente = ID_Cliente;
+        this.Tipo_Comprobante = Tipo_Comprobante;
+        this.Serie_Comprobante = Serie_Comprobante;
+        this.Num_Comprobante = Num_Comprobante;
         this.fecha = fecha;
-        this.id_Metodo_Pago = id_Metodo_Pago;
+        this.ID_Metodo_Pago = ID_Metodo_Pago;
         this.estado = estado;
-        this.id_Reserva = id_Reserva;
+        this.ID_Reserva = ID_Reserva;
     }
 
-    public int getId_Venta() {
-        return id_Venta;
+    /**
+     * @return the ID_Venta
+     */
+    public int getID_Venta() {
+        return ID_Venta;
     }
 
-    public void setId_Venta(int id_Venta) {
-        this.id_Venta = id_Venta;
+    /**
+     * @param ID_Venta the ID_Venta to set
+     */
+    public void setID_Venta(int ID_Venta) {
+        this.ID_Venta = ID_Venta;
     }
 
-    public int getId_Empleado() {
-        return id_Empleado;
+    /**
+     * @return the ID_Empleado
+     */
+    public int getID_Empleado() {
+        return ID_Empleado;
     }
 
-    public void setId_Empleado(int id_Empleado) {
-        this.id_Empleado = id_Empleado;
+    /**
+     * @param ID_Empleado the ID_Empleado to set
+     */
+    public void setID_Empleado(int ID_Empleado) {
+        this.ID_Empleado = ID_Empleado;
     }
 
-    public int getId_Cliente() {
-        return id_Cliente;
+    /**
+     * @return the ID_Cliente
+     */
+    public int getID_Cliente() {
+        return ID_Cliente;
     }
 
-    public void setId_Cliente(int id_Cliente) {
-        this.id_Cliente = id_Cliente;
+    /**
+     * @param ID_Cliente the ID_Cliente to set
+     */
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
 
+    /**
+     * @return the Tipo_Comprobante
+     */
     public String getTipo_Comprobante() {
-        return tipo_Comprobante;
+        return Tipo_Comprobante;
     }
 
-    public void setTipo_Comprobante(String tipo_Comprobante) {
-        this.tipo_Comprobante = tipo_Comprobante;
+    /**
+     * @param Tipo_Comprobante the Tipo_Comprobante to set
+     */
+    public void setTipo_Comprobante(String Tipo_Comprobante) {
+        this.Tipo_Comprobante = Tipo_Comprobante;
     }
 
+    /**
+     * @return the Serie_Comprobante
+     */
     public String getSerie_Comprobante() {
-        return serie_Comprobante;
+        return Serie_Comprobante;
     }
 
-    public void setSerie_Comprobante(String serie_Comprobante) {
-        this.serie_Comprobante = serie_Comprobante;
+    /**
+     * @param Serie_Comprobante the Serie_Comprobante to set
+     */
+    public void setSerie_Comprobante(String Serie_Comprobante) {
+        this.Serie_Comprobante = Serie_Comprobante;
     }
 
+    /**
+     * @return the Num_Comprobante
+     */
+    public String getNum_Comprobante() {
+        return Num_Comprobante;
+    }
+
+    /**
+     * @param Num_Comprobante the Num_Comprobante to set
+     */
+    public void setNum_Comprobante(String Num_Comprobante) {
+        this.Num_Comprobante = Num_Comprobante;
+    }
+
+    /**
+     * @return the fecha
+     */
     public Date getFecha() {
         return fecha;
     }
 
+    /**
+     * @param fecha the fecha to set
+     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public int getId_Metodo_Pago() {
-        return id_Metodo_Pago;
+    /**
+     * @return the ID_Metodo_Pago
+     */
+    public int getID_Metodo_Pago() {
+        return ID_Metodo_Pago;
     }
 
-    public void setId_Metodo_Pago(int id_Metodo_Pago) {
-        this.id_Metodo_Pago = id_Metodo_Pago;
+    /**
+     * @param ID_Metodo_Pago the ID_Metodo_Pago to set
+     */
+    public void setID_Metodo_Pago(int ID_Metodo_Pago) {
+        this.ID_Metodo_Pago = ID_Metodo_Pago;
     }
 
+    /**
+     * @return the estado
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * @param estado the estado to set
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public int getId_Reserva() {
-        return id_Reserva;
+    /**
+     * @return the ID_Reserva
+     */
+    public int getID_Reserva() {
+        return ID_Reserva;
     }
 
-    public void setId_Reserva(int id_Reserva) {
-        this.id_Reserva = id_Reserva;
+    /**
+     * @param ID_Reserva the ID_Reserva to set
+     */
+    public void setID_Reserva(int ID_Reserva) {
+        this.ID_Reserva = ID_Reserva;
     }
-    
+
     
 }

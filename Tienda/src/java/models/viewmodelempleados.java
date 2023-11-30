@@ -18,110 +18,172 @@ import java.util.Date;
 public class viewmodelempleados {
     private int ID_Empleado;
     private String DUI_Empleado;
-    private String NombresEmpleado;
-    private String ApellidosEmpleado;
+    private String nombresEmpleado;
+    private String apellidosEmpleado;
     private int ID_Usuario;
-    private Date FechaNacEmpleado;
-    private String Telefono;
-    private String Correo;
-    private String Direccion;
+    private Date fechaNacEmpleado;
+    private String telefono;
+    private String correo;
+    private String direccion;
     private int ID_Cargo;
 
-    public viewmodelempleados() {
-    }
-
-    public viewmodelempleados(int ID_Empleado, String DUI_Empleado, String NombresEmpleado, String ApellidosEmpleado, int ID_Usuario, Date FechaNacEmpleado, String Telefono, String Correo, String Direccion, int ID_Cargo) {
+    public viewmodelempleados(int ID_Empleado, String DUI_Empleado, String nombresEmpleado, String apellidosEmpleado, int ID_Usuario, Date fechaNacEmpleado, String telefono, String correo, String direccion, int ID_Cargo) {
         this.ID_Empleado = ID_Empleado;
         this.DUI_Empleado = DUI_Empleado;
-        this.NombresEmpleado = NombresEmpleado;
-        this.ApellidosEmpleado = ApellidosEmpleado;
+        this.nombresEmpleado = nombresEmpleado;
+        this.apellidosEmpleado = apellidosEmpleado;
         this.ID_Usuario = ID_Usuario;
-        this.FechaNacEmpleado = FechaNacEmpleado;
-        this.Telefono = Telefono;
-        this.Correo = Correo;
-        this.Direccion = Direccion;
+        this.fechaNacEmpleado = fechaNacEmpleado;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.direccion = direccion;
         this.ID_Cargo = ID_Cargo;
     }
 
+    public viewmodelempleados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    /**
+     * @return the ID_Empleado
+     */
     public int getID_Empleado() {
         return ID_Empleado;
     }
 
+    /**
+     * @param ID_Empleado the ID_Empleado to set
+     */
     public void setID_Empleado(int ID_Empleado) {
         this.ID_Empleado = ID_Empleado;
     }
 
+    /**
+     * @return the DUI_Empleado
+     */
     public String getDUI_Empleado() {
         return DUI_Empleado;
     }
 
+    /**
+     * @param DUI_Empleado the DUI_Empleado to set
+     */
     public void setDUI_Empleado(String DUI_Empleado) {
         this.DUI_Empleado = DUI_Empleado;
     }
 
+    /**
+     * @return the nombresEmpleado
+     */
     public String getNombresEmpleado() {
-        return NombresEmpleado;
+        return nombresEmpleado;
     }
 
-    public void setNombresEmpleado(String NombresEmpleado) {
-        this.NombresEmpleado = NombresEmpleado;
+    /**
+     * @param nombresEmpleado the nombresEmpleado to set
+     */
+    public void setNombresEmpleado(String nombresEmpleado) {
+        this.nombresEmpleado = nombresEmpleado;
     }
 
+    /**
+     * @return the apellidosEmpleado
+     */
     public String getApellidosEmpleado() {
-        return ApellidosEmpleado;
+        return apellidosEmpleado;
     }
 
-    public void setApellidosEmpleado(String ApellidosEmpleado) {
-        this.ApellidosEmpleado = ApellidosEmpleado;
+    /**
+     * @param apellidosEmpleado the apellidosEmpleado to set
+     */
+    public void setApellidosEmpleado(String apellidosEmpleado) {
+        this.apellidosEmpleado = apellidosEmpleado;
     }
 
+    /**
+     * @return the ID_Usuario
+     */
     public int getID_Usuario() {
         return ID_Usuario;
     }
 
+    /**
+     * @param ID_Usuario the ID_Usuario to set
+     */
     public void setID_Usuario(int ID_Usuario) {
         this.ID_Usuario = ID_Usuario;
     }
 
+    /**
+     * @return the fechaNacEmpleado
+     */
     public Date getFechaNacEmpleado() {
-        return FechaNacEmpleado;
+        return fechaNacEmpleado;
     }
 
-    public void setFechaNacEmpleado(Date FechaNacEmpleado) {
-        this.FechaNacEmpleado = FechaNacEmpleado;
+    /**
+     * @param fechaNacEmpleado the fechaNacEmpleado to set
+     */
+    public void setFechaNacEmpleado(Date fechaNacEmpleado) {
+        this.fechaNacEmpleado = fechaNacEmpleado;
     }
 
+    /**
+     * @return the telefono
+     */
     public String getTelefono() {
-        return Telefono;
+        return telefono;
     }
 
-    public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
+    /**
+     * @param telefono the telefono to set
+     */
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
+    /**
+     * @return the correo
+     */
     public String getCorreo() {
-        return Correo;
+        return correo;
     }
 
-    public void setCorreo(String Correo) {
-        this.Correo = Correo;
+    /**
+     * @param correo the correo to set
+     */
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
+    /**
+     * @return the direccion
+     */
     public String getDireccion() {
-        return Direccion;
+        return direccion;
     }
 
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
+    /**
+     * @param direccion the direccion to set
+     */
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
+    /**
+     * @return the ID_Cargo
+     */
     public int getID_Cargo() {
         return ID_Cargo;
     }
 
+    /**
+     * @param ID_Cargo the ID_Cargo to set
+     */
     public void setID_Cargo(int ID_Cargo) {
         this.ID_Cargo = ID_Cargo;
     }
+
     
     
 }

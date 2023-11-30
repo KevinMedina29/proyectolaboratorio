@@ -16,92 +16,138 @@ import java.util.Date;
 
 
 public class viewmodelingreso {
-    private int id_Ingreso;
-    private int id_Empleado;
-    private String tipo_Comprobante;
-    private String serie_Comprobante;
-    private String um_Comprobante;
+    private int ID_Ingreso;
+    private int ID_Empleado;
+    private String Tipo_Comprobante;
+    private String Serie_Comprobante;
+    private String Num_Comprobante;
     private Date fecha;
     private String total;
     private String estado;
 
-    public viewmodelingreso() {
-    }
-
-    public viewmodelingreso(int id_Ingreso, int id_Empleado, String tipo_Comprobante, String serie_Comprobante, String um_Comprobante, Date fecha, String total, String estado) {
-        this.id_Ingreso = id_Ingreso;
-        this.id_Empleado = id_Empleado;
-        this.tipo_Comprobante = tipo_Comprobante;
-        this.serie_Comprobante = serie_Comprobante;
-        this.um_Comprobante = um_Comprobante;
+    public viewmodelingreso(int ID_Ingreso, int ID_Empleado, String Tipo_Comprobante, String Serie_Comprobante, String Num_Comprobante, Date fecha, String total, String estado) {
+        this.ID_Ingreso = ID_Ingreso;
+        this.ID_Empleado = ID_Empleado;
+        this.Tipo_Comprobante = Tipo_Comprobante;
+        this.Serie_Comprobante = Serie_Comprobante;
+        this.Num_Comprobante = Num_Comprobante;
         this.fecha = fecha;
         this.total = total;
         this.estado = estado;
     }
 
-    public int getId_Ingreso() {
-        return id_Ingreso;
+    /**
+     * @return the ID_Ingreso
+     */
+    public int getID_Ingreso() {
+        return ID_Ingreso;
     }
 
-    public void setId_Ingreso(int id_Ingreso) {
-        this.id_Ingreso = id_Ingreso;
+    /**
+     * @param ID_Ingreso the ID_Ingreso to set
+     */
+    public void setID_Ingreso(int ID_Ingreso) {
+        this.ID_Ingreso = ID_Ingreso;
     }
 
-    public int getId_Empleado() {
-        return id_Empleado;
+    /**
+     * @return the ID_Empleado
+     */
+    public int getID_Empleado() {
+        return ID_Empleado;
     }
 
-    public void setId_Empleado(int id_Empleado) {
-        this.id_Empleado = id_Empleado;
+    /**
+     * @param ID_Empleado the ID_Empleado to set
+     */
+    public void setID_Empleado(int ID_Empleado) {
+        this.ID_Empleado = ID_Empleado;
     }
 
+    /**
+     * @return the Tipo_Comprobante
+     */
     public String getTipo_Comprobante() {
-        return tipo_Comprobante;
+        return Tipo_Comprobante;
     }
 
-    public void setTipo_Comprobante(String tipo_Comprobante) {
-        this.tipo_Comprobante = tipo_Comprobante;
+    /**
+     * @param Tipo_Comprobante the Tipo_Comprobante to set
+     */
+    public void setTipo_Comprobante(String Tipo_Comprobante) {
+        this.Tipo_Comprobante = Tipo_Comprobante;
     }
 
+    /**
+     * @return the Serie_Comprobante
+     */
     public String getSerie_Comprobante() {
-        return serie_Comprobante;
+        return Serie_Comprobante;
     }
 
-    public void setSerie_Comprobante(String serie_Comprobante) {
-        this.serie_Comprobante = serie_Comprobante;
+    /**
+     * @param Serie_Comprobante the Serie_Comprobante to set
+     */
+    public void setSerie_Comprobante(String Serie_Comprobante) {
+        this.Serie_Comprobante = Serie_Comprobante;
     }
 
-    public String getUm_Comprobante() {
-        return um_Comprobante;
+    /**
+     * @return the Num_Comprobante
+     */
+    public String getNum_Comprobante() {
+        return Num_Comprobante;
     }
 
-    public void setUm_Comprobante(String um_Comprobante) {
-        this.um_Comprobante = um_Comprobante;
+    /**
+     * @param Num_Comprobante the Num_Comprobante to set
+     */
+    public void setNum_Comprobante(String Num_Comprobante) {
+        this.Num_Comprobante = Num_Comprobante;
     }
 
+    /**
+     * @return the fecha
+     */
     public Date getFecha() {
         return fecha;
     }
 
+    /**
+     * @param fecha the fecha to set
+     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
+    /**
+     * @return the total
+     */
     public String getTotal() {
         return total;
     }
 
+    /**
+     * @param total the total to set
+     */
     public void setTotal(String total) {
         this.total = total;
     }
 
+    /**
+     * @return the estado
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * @param estado the estado to set
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
     
     
 }

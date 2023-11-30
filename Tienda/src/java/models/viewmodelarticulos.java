@@ -13,82 +13,176 @@ create table Articulo(
 ); */
 package models;
 
+import java.util.Date;
+
 public class viewmodelarticulos {
-    private int id_Articulo;
-    private String Codigo;
+    private int ID_Articulo;
+    private int ID_Categoria;
+    private int ID_Subcategoria;
+    private String codigo;
+    private double Precio_Venta;
+    private Date Fecha_Vencimiento;
     private String descripcion;
-    private double precio;
-    private int id_Subcategoria;
-    private int id_Proveedor;
-    private int id_Categoria;
+    private String imagen;
+    private int estado;
+    private int ID_Proveedor;
+
+    public viewmodelarticulos(int ID_Articulo, int ID_Categoria, int ID_Subcategoria, String codigo, double Precio_Venta, Date Fecha_Vencimiento, String descripcion, String imagen, int estado, int ID_Proveedor) {
+        this.ID_Articulo = ID_Articulo;
+        this.ID_Categoria = ID_Categoria;
+        this.ID_Subcategoria = ID_Subcategoria;
+        this.codigo = codigo;
+        this.Precio_Venta = Precio_Venta;
+        this.Fecha_Vencimiento = Fecha_Vencimiento;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.estado = estado;
+        this.ID_Proveedor = ID_Proveedor;
+    }
 
     public viewmodelarticulos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public viewmodelarticulos(int id_Articulo, String nombreArticuloo, String descripcion, double precio, int id_Subcategoria, int id_Proveedo, int id_Categoria) {
-        this.id_Articulo = id_Articulo;
-        this.Codigo = Codigo;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.id_Subcategoria = id_Subcategoria;
-        this.id_Proveedor = id_Proveedo;
-        this.id_Categoria = id_Categoria;
+    /**
+     * @return the ID_Articulo
+     */
+    public int getID_Articulo() {
+        return ID_Articulo;
     }
 
-    public int getId_Articulo() {
-        return id_Articulo;
+    /**
+     * @param ID_Articulo the ID_Articulo to set
+     */
+    public void setID_Articulo(int ID_Articulo) {
+        this.ID_Articulo = ID_Articulo;
     }
 
-    public void setId_Articulo(int id_Articulo) {
-        this.id_Articulo = id_Articulo;
+    /**
+     * @return the ID_Categoria
+     */
+    public int getID_Categoria() {
+        return ID_Categoria;
     }
 
+    /**
+     * @param ID_Categoria the ID_Categoria to set
+     */
+    public void setID_Categoria(int ID_Categoria) {
+        this.ID_Categoria = ID_Categoria;
+    }
+
+    /**
+     * @return the ID_Subcategoria
+     */
+    public int getID_Subcategoria() {
+        return ID_Subcategoria;
+    }
+
+    /**
+     * @param ID_Subcategoria the ID_Subcategoria to set
+     */
+    public void setID_Subcategoria(int ID_Subcategoria) {
+        this.ID_Subcategoria = ID_Subcategoria;
+    }
+
+    /**
+     * @return the codigo
+     */
     public String getCodigo() {
-        return Codigo;
+        return codigo;
     }
 
-    public void setCodigo(String Codigo) {
-        this.Codigo = Codigo;
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
+    /**
+     * @return the Precio_Venta
+     */
+    public double getPrecio_Venta() {
+        return Precio_Venta;
+    }
+
+    /**
+     * @param Precio_Venta the Precio_Venta to set
+     */
+    public void setPrecio_Venta(double Precio_Venta) {
+        this.Precio_Venta = Precio_Venta;
+    }
+
+    /**
+     * @return the Fecha_Vencimiento
+     */
+    public Date getFecha_Vencimiento() {
+        return Fecha_Vencimiento;
+    }
+
+    /**
+     * @param Fecha_Vencimiento the Fecha_Vencimiento to set
+     */
+    public void setFecha_Vencimiento(Date Fecha_Vencimiento) {
+        this.Fecha_Vencimiento = Fecha_Vencimiento;
+    }
+
+    /**
+     * @return the descripcion
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * @param descripcion the descripcion to set
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
-        return precio;
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
-    public int getId_Subcategoria() {
-        return id_Subcategoria;
+    /**
+     * @return the estado
+     */
+    public int getEstado() {
+        return estado;
     }
 
-    public void setId_Subcategoria(int id_Subcategoria) {
-        this.id_Subcategoria = id_Subcategoria;
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
-    public int getId_Proveedo() {
-        return id_Proveedor;
+    /**
+     * @return the ID_Proveedor
+     */
+    public int getID_Proveedor() {
+        return ID_Proveedor;
     }
 
-    public void setId_Proveedo(int id_Proveedo) {
-        this.id_Proveedor = id_Proveedo;
+    /**
+     * @param ID_Proveedor the ID_Proveedor to set
+     */
+    public void setID_Proveedor(int ID_Proveedor) {
+        this.ID_Proveedor = ID_Proveedor;
     }
 
-    public int getId_Categoria() {
-        return id_Categoria;
-    }
-
-    public void setId_Categoria(int id_Categoria) {
-        this.id_Categoria = id_Categoria;
-    }
     
 }

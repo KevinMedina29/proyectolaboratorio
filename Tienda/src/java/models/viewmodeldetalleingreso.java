@@ -10,59 +10,86 @@ package models;
 
 
 public class viewmodeldetalleingreso {
-    private int id_detalle_ingreso;
-    private int id_ingreso;
-    private int id_categoria;
+    private int ID_Detalle_Ingreso;
+    private int ID_Ingreso;
+    private int ID_Categoria;
     private int cantidad;
     private String precio;
 
-    public viewmodeldetalleingreso() {
-    }
-
-    public viewmodeldetalleingreso(int id_detalle_ingreso, int id_ingreso, int id_categoria, int cantidad, String precio) {
-        this.id_detalle_ingreso = id_detalle_ingreso;
-        this.id_ingreso = id_ingreso;
-        this.id_categoria = id_categoria;
+    public viewmodeldetalleingreso(int ID_Detalle_Ingreso, int ID_Ingreso, int ID_Categoria, int cantidad, String precio) {
+        this.ID_Detalle_Ingreso = ID_Detalle_Ingreso;
+        this.ID_Ingreso = ID_Ingreso;
+        this.ID_Categoria = ID_Categoria;
         this.cantidad = cantidad;
         this.precio = precio;
     }
 
-    public int getId_detalle_ingreso() {
-        return id_detalle_ingreso;
+    /**
+     * @return the ID_Detalle_Ingreso
+     */
+    public int getID_Detalle_Ingreso() {
+        return ID_Detalle_Ingreso;
     }
 
-    public void setId_detalle_ingreso(int id_detalle_ingreso) {
-        this.id_detalle_ingreso = id_detalle_ingreso;
+    /**
+     * @param ID_Detalle_Ingreso the ID_Detalle_Ingreso to set
+     */
+    public void setID_Detalle_Ingreso(int ID_Detalle_Ingreso) {
+        this.ID_Detalle_Ingreso = ID_Detalle_Ingreso;
     }
 
-    public int getId_ingreso() {
-        return id_ingreso;
+    /**
+     * @return the ID_Ingreso
+     */
+    public int getID_Ingreso() {
+        return ID_Ingreso;
     }
 
-    public void setId_ingreso(int id_ingreso) {
-        this.id_ingreso = id_ingreso;
+    /**
+     * @param ID_Ingreso the ID_Ingreso to set
+     */
+    public void setID_Ingreso(int ID_Ingreso) {
+        this.ID_Ingreso = ID_Ingreso;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    /**
+     * @return the ID_Categoria
+     */
+    public int getID_Categoria() {
+        return ID_Categoria;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    /**
+     * @param ID_Categoria the ID_Categoria to set
+     */
+    public void setID_Categoria(int ID_Categoria) {
+        this.ID_Categoria = ID_Categoria;
     }
 
+    /**
+     * @return the cantidad
+     */
     public int getCantidad() {
         return cantidad;
     }
 
+    /**
+     * @param cantidad the cantidad to set
+     */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
+    /**
+     * @return the precio
+     */
     public String getPrecio() {
         return precio;
     }
 
+    /**
+     * @param precio the precio to set
+     */
     public void setPrecio(String precio) {
         this.precio = precio;
     }

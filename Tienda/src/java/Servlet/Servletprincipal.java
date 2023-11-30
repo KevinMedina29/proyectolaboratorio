@@ -29,6 +29,7 @@ import models.viewmodelenvios;
 import models.viewmodelexistencias;
 import models.viewmodelingreso;
 import models.viewmodelmetodospago;
+import models.viewmodelproveedores;
 import models.viewmodelusuarios;
 import models.viewmodelventa;
 
@@ -54,7 +55,7 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from Cargos";
+                String sqlQuery = "select * from Cargo";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
@@ -62,8 +63,8 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodelcargo cargo = new viewmodelcargo();
-                    cargo.setId_cargo(rs.getInt("Id_Cargo"));
-                    cargo.setNombre_cargo(rs.getString("Nombre_Cargo"));
+                    cargo.setID_Cargo(rs.getInt("ID_Cargo"));
+                    cargo.setNombre_Cargo(rs.getString("Nombre_Cargo"));
                     listaCargos.add(cargo);
                 }
                 request.setAttribute("listaCargos", listaCargos);
@@ -82,7 +83,7 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Persona.Empleados";
+                String sqlQuery = "select * from Empleados";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
@@ -90,17 +91,16 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodelempleados empleado = new viewmodelempleados();
-                    empleado.setID_Usuario(rs.getInt("Id_Empleado"));
-                    empleado.setID_Empleado(rs.getInt("Id_Empleado"));
+                    empleado.setID_Empleado(rs.getInt("ID_Empleado"));
                     empleado.setDUI_Empleado(rs.getString("DUI_Empleado"));
+                    empleado.setNombresEmpleado(rs.getString("nombresEmpleado"));
+                    empleado.setApellidosEmpleado(rs.getString("apellidosEmpleado"));
+                    empleado.setID_Usuario(rs.getInt("ID_Usuario"));
+                    empleado.setFechaNacEmpleado(rs.getDate("fechaNacEmpleado"));
+                    empleado.setTelefono(rs.getString("telefono"));
+                    empleado.setCorreo(rs.getString("correo"));
+                    empleado.setDireccion(rs.getString("direccion"));
                     empleado.setID_Cargo(rs.getInt("ID_Cargo"));
-                    empleado.setNombresEmpleado(rs.getString("NombresEmpleado"));
-                    empleado.setApellidosEmpleado(rs.getString("ApellidosEmpleado"));
-                    empleado.setFechaNacEmpleado(rs.getDate("FechaNacEmpleado"));
-                    empleado.setTelefono(rs.getString("Telefono"));
-                    empleado.setCorreo(rs.getString("Correo"));
-                    
-                    empleado.setDireccion(rs.getString("Direccion"));
 
                     listaEmpleados.add(empleado);
                 }
@@ -119,19 +119,18 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Rol.Usuarios";
+                String sqlQuery = "select * from  Usuarios";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelUsuarios> listaUsuarios = new ArrayList<>();
+                ArrayList<viewmodelusuarios> listaUsuarios = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelUsuarios user = new ViewModelUsuarios();
-                    user.setId_Usuario(rs.getInt("Id_Usuario"));
-                    user.setId_Empleado(rs.getInt("Id_Empleado"));
-                    user.setId_Rol(rs.getInt("Id_Rol"));
-                    user.setUsuario(rs.getString("Usuario"));
-                    user.setClave(rs.getString("Clave"));
+                    viewmodelusuarios user = new viewmodelusuarios();
+                    user.setID_Usuario(rs.getInt("ID_Usuario"));
+                    user.setID_Rol(rs.getInt("ID_Rol"));
+                    user.setUsuario(rs.getString("usuario"));
+                    user.setClave(rs.getString("clave"));
                     listaUsuarios.add(user);
                 }
                 request.setAttribute("listaUsuarios", listaUsuarios);
@@ -142,7 +141,7 @@ public class Servletprincipal extends HttpServlet {
             ex.printStackTrace();
         }
     }// fin de usuarios
-    //fin Usuarios
+    
     //Clientes
     public void mostrarClientes(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -150,7 +149,7 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Cliente.Clientes";
+                String sqlQuery = "select * from  Clientes";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
@@ -159,13 +158,13 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelclientes cliente = new viewmodelclientes();
                     cliente.setID_Cliente(rs.getInt("ID_Cliente"));
-                    cliente.setNombresCliente(rs.getString("NombresCliente"));
-                    cliente.setApellidosCliente(rs.getString("ApellidosCliente"));
                     cliente.setDUI_Cliente(rs.getString("DUI_Cliente"));
-                    cliente.setTelefono(rs.getString("Telefono"));
-                    cliente.setCorreo(rs.getString("Correo"));
-                    cliente.setID_Direccion(rs.getInt("Id_Direccion"));
-                    cliente.setID_Usuario(rs.getInt("ID_Isuario"));
+                    cliente.setNombresCliente(rs.getString("nombresCliente"));
+                    cliente.setApellidosCliente(rs.getString("apellidosCliente"));
+                    cliente.setID_Usuario(rs.getInt("ID_Usuario"));
+                    cliente.setTelefono(rs.getString("telefono"));
+                    cliente.setCorreo(rs.getString("correo"));
+                    cliente.setID_Direccion(rs.getInt("ID_Direccion"));
                     listaClientes.add(cliente);
                 }
                 request.setAttribute("listaClientes", listaClientes);
@@ -177,67 +176,68 @@ public class Servletprincipal extends HttpServlet {
         }
     }// fin de Clientes
     //Fin Clientes
-    ///Inventario
-    public void mostrarInventario(HttpServletRequest request, HttpServletResponse response) {
+    ///Existencias
+    public void mostrarExistencias(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Productos.Inventario";
+                String sqlQuery = "select * from ExistenciaProducto";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelInventario> listaInventario = new ArrayList<>();
+                ArrayList<viewmodelexistencias> listaExistencias = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelInventario inventario = new ViewModelInventario();
-                    inventario.setId_Inventario(rs.getInt("Id_Inventario"));
-                    inventario.setStock(rs.getInt("Stock"));
-                    inventario.setNombreProducto(rs.getString("Nombre_producto"));
-                    inventario.setDescripcion(rs.getString("Descripcion"));
-                    inventario.setPrecio(rs.getDouble("Precio"));
-                    inventario.setFechaAdquisicion(rs.getDate("Fecha_adquisicion"));
-                    inventario.setFechaUltimaActualizacion(rs.getDate("Fecha_ultima_actualizacion"));
-                    inventario.setCategoria(rs.getString("Categoria"));
-                    inventario.setProveedor(rs.getString("Proveedor"));
-                    listaInventario.add(inventario);
+                    viewmodelexistencias existencias = new viewmodelexistencias();
+                    existencias.setID_Existencia(rs.getInt("ID_Existencia"));
+                    existencias.setID_Articulo(rs.getInt("ID_Articulo"));
+                    existencias.setCantidad(rs.getInt("cantidad"));
+                    existencias.setFechaIngreso(rs.getDate("fechaIngreso"));
+                    existencias.setUbicacion(rs.getString("ubicacion"));
+                    existencias.setPrecioCompra(rs.getString("precioCompra"));
+                    existencias.setPrecioVenta(rs.getString("precioVenta"));
+                    existencias.setEstado(rs.getString("estado"));
                 }
-                request.setAttribute("listaInventario", listaInventario);
+                request.setAttribute("listaExistencias", listaExistencias);
 
             }
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensaje_conexion", ex.getMessage());
             ex.printStackTrace();
         }
-    }//Fin Inventario
-    //Fin Inventarios
-    //Inicio Productos
+    }//Fin existencias
+    
+    //Inicio Articulos
     public void mostrarArticulo(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Productos.Producto";
+                String sqlQuery = "select * from Articulo";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<viewmodelarticulos> listaProductos = new ArrayList<>();
+                ArrayList<viewmodelarticulos> listaArticulos = new ArrayList<>();
 
                 while (rs.next()) {
-                    viewmodelarticulos producto = new viewmodelarticulos();
-                    producto.setId_Articulo(rs.getInt("ID_Articulo"));
-                    producto.setCodigo(rs.getString("Codigo"));
-                    producto.setDescripcion(rs.getString("Descripcion"));
-                    producto.setPrecio(rs.getDouble("Precio_Venta"));
-                    producto.setId_Inventario(rs.getInt("Id_Inventario"));
-                    producto.setId_Marca(rs.getInt("Id_Marca"));
-                    producto.setId_Categoria(rs.getInt("Id_Categoria"));
+                    viewmodelarticulos articulo = new viewmodelarticulos();
+                    articulo.setID_Articulo(rs.getInt("ID_Articulo"));
+                    articulo.setID_Categoria(rs.getInt("ID_Categoria"));
+                    articulo.setID_Subcategoria(rs.getInt("ID_Subcategoria"));
+                    articulo.setCodigo(rs.getString("codigo"));
+                    articulo.setPrecio_Venta(rs.getDouble("Precio_Venta"));
+                    articulo.setFecha_Vencimiento(rs.getDate("Fecha_Vencimiento"));
+                    articulo.setDescripcion(rs.getString("descrpcion"));
+                    articulo.setImagen(rs.getString("imagen"));
+                    articulo.setEstado(rs.getInt("estado"));
+                    articulo.setID_Proveedor(rs.getInt("ID_Proveedor"));
 
-                    listaProductos.add(producto);
+                    listaArticulos.add(articulo);
                 }
-                request.setAttribute("listaProductos", listaProductos);
+                request.setAttribute("listaArticulos", listaArticulos);
 
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -245,30 +245,31 @@ public class Servletprincipal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    //Fin Productos
-    //Descuento
+    //Fin articulos
+    //Reserva
     public void mostrarReserva(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Productos.Descuento";
+                String sqlQuery = "select * from  Reservas";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelDescuento> listaDescuento = new ArrayList<>();
+                ArrayList<viewmodelReservas> listaReservas = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelDescuento descuento = new ViewModelDescuento();
-                    descuento.setId_Descuento(rs.getInt("Id_Descuento"));
-                    descuento.setId_Producto(rs.getInt("Id_Producto"));
-                    descuento.setPorcentajeDescuento(rs.getDouble("PorcentajeDescuento"));
-                    descuento.setFechaInicio(rs.getDate("FechaInicio"));
-                    descuento.setFechaFinal(rs.getDate("FechaFinal"));
-                    listaDescuento.add(descuento);
+                    viewmodelReservas reservas = new viewmodelReservas();
+                    reservas.setID_Reserva(rs.getInt("ID_Reserva"));
+                    reservas.setID_Cliente(rs.getInt("ID_Cliente"));
+                    reservas.setFechaInicio(rs.getDate("fechaInicio"));
+                    reservas.setFechaFin(rs.getDate("fechaFin"));
+                    reservas.setEstado(rs.getString("estado"));
+                    reservas.setNotas(rs.getString("notas"));
+                    listaReservas.add(reservas);
                 }
-                request.setAttribute("listaDescuento", listaDescuento);
+                request.setAttribute("listaReservas", listaReservas);
 
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -276,22 +277,22 @@ public class Servletprincipal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    //Fin Descuento
-    //Inicio Compras
+    //Fin Reserva
+    //Inicio Ingreso
     public void mostrarIngreso(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Ventas.Compra";
+                String sqlQuery = "select * from Ingreso";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelCompra> listaCompra = new ArrayList<>();
+                ArrayList<viewmodelingreso> listaIngreso = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelCompra compra = new ViewModelCompra();
+                    viewmodelingreso compra = new viewmodelingreso();
                     compra.setId_Compra(rs.getInt("Id_Compra"));
                     compra.setProveedor(rs.getString("Proveedor"));
                     compra.setNombreCompra(rs.getString("NombreCompra"));
@@ -301,9 +302,9 @@ public class Servletprincipal extends HttpServlet {
                     compra.setId_Empleado(rs.getInt("Id_Empleado"));
                     compra.setDescripcionCompra(rs.getString("DescripcionCompra"));
 
-                    listaCompra.add(compra);
+                    listaIngreso.add(compra);
                 }
-                request.setAttribute("listaCompra", listaCompra);
+                request.setAttribute("listaIngreso", listaIngreso);
 
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -319,23 +320,23 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Ventas.DetalleCompra";
+                String sqlQuery = "select * from DetalleIngreso";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelDetalleCompra> listaDetalleCompra = new ArrayList<>();
+                ArrayList<viewmodeldetalleingreso> listaDetalleIngreso = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelDetalleCompra detalleCompra = new ViewModelDetalleCompra();
+                    viewmodeldetalleingreso detalleCompra = new viewmodeldetalleingreso();
                     detalleCompra.setId_DetalleCompra(rs.getInt("Id_DetalleCompra"));
                     detalleCompra.setId_Compra(rs.getInt("Id_Compra"));
                     detalleCompra.setCantidad(rs.getInt("Cantidad"));
                     detalleCompra.setPrecioUnitario(rs.getDouble("PrecioUnitario"));
                     detalleCompra.setEstadoCompra(rs.getString("EstadoCompra"));
                     detalleCompra.setTotal(rs.getDouble("Total"));
-                    listaDetalleCompra.add(detalleCompra);
+                    listaDetalleIngreso.add(detalleCompra);
                 }
-                request.setAttribute("listaDetalleCompra", listaDetalleCompra);
+                request.setAttribute("listaDetalleIngreso", listaDetalleIngreso);
 
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -351,15 +352,15 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Ventas.MetodosPago";
+                String sqlQuery = "select * from  MetodoPago";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelMetodosPago> listaMetodosPago = new ArrayList<>();
+                ArrayList<viewmodelmetodospago> listaMetodosPago = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelMetodosPago metodoPago = new ViewModelMetodosPago();
-                    metodoPago.setIdMetodoPago(rs.getInt("Id_MetodoPago"));
+                    viewmodelmetodospago metodoPago = new viewmodelmetodospago();
+                    metodoPago.setIdMetodoPago(rs.getInt("Id_Metodo_Pago"));
                     metodoPago.setMetodo(rs.getString("Metodo"));
 
                     listaMetodosPago.add(metodoPago);
@@ -414,10 +415,10 @@ public class Servletprincipal extends HttpServlet {
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelVenta> listaVentas = new ArrayList<>();
+                ArrayList<viewmodelventa> listaVentas = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelVenta venta = new ViewModelVenta();
+                    viewmodelventa venta = new viewmodelventa();
                     venta.setId_Venta(rs.getInt("Id_Venta"));
                     venta.setId_Cliente(rs.getInt("Id_Cliente"));
                     venta.setId_Usuario(rs.getInt("Id_Usuario"));
@@ -441,14 +442,14 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Cliente.CarritoCompras";
+                String sqlQuery = "select * from  CarritoCompras";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelCarritoCompras> listaCarrito = new ArrayList<>();
+                ArrayList<viewmodelcarritocompras> listaCarrito = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelCarritoCompras carritoCompras = new ViewModelCarritoCompras();
+                    viewmodelcarritocompras carritoCompras = new viewmodelcarritocompras();
                     carritoCompras.setId_Carrito(rs.getInt("Id_Carrito"));
                     carritoCompras.setId_Producto(rs.getInt("Id_Producto"));
                     carritoCompras.setId_Venta(rs.getInt("Id_Venta"));
@@ -519,7 +520,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "insert into Persona.Empleados values (?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "insert into Empleados values (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, DUI_Empleado);
                 pstmt.setString(3, nombresEmpleado);
@@ -579,7 +580,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "insert into Rol.Usuarios values ( ?,?,?,? )";
+                String sql = "insert into Usuarios values ( ?,?,?,? )";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, id_Empleado);
                 pstmt.setString(2, Id_Rol);
@@ -615,7 +616,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "insert into Cliente.Clientes values ( ?, ?, ?, ?, ?, ?, ?, ? )";
+                String sql = "insert into Clientes values ( ?, ?, ?, ?, ?, ?, ?, ? )";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, nombresCliente);
                 pstmt.setString(2, apellidosCliente);
@@ -660,7 +661,7 @@ public class Servletprincipal extends HttpServlet {
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
 
-                String sql = "update Persona.Empleados set "
+                String sql = "update Empleados set "
                         + "DUI_Empleado='" + DUI_Empleado + "', "
                         + "NombresEmpleado='" + nombresEmpleado + "', "
                         + "ApellidosEmpleado='" + apellidosEmpleado + "', "
@@ -699,12 +700,12 @@ public class Servletprincipal extends HttpServlet {
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
 
-                String sql = "update Rol.Usuarios set "
+                String sql = "update Usuarios set "
                         + "Id_Empleado='" + Id_Empleado + "', "
                         + "Id_Rol='" + Id_Rol + "', "
                         + "Usuario='" + Usuario + "', "
                         + "Clave='" + clave + "' "
-                        + "where Id_Usuario='" + Id_Usuario + "'";
+                        + "where ID_Usuario='" + Id_Usuario + "'";
 
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 int registros = pstmt.executeUpdate();
@@ -769,7 +770,7 @@ public class Servletprincipal extends HttpServlet {
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
 
-                String sql = "update Cliente.Clientes set "
+                String sql = "update Clientes set "
                         + "NombresCliente='" + nombresClietne + "', "
                         + "ApellidosCliente='" + ApellidosCliente + "', "
                         + "DUI_Cliente='" + Dui_CLiente + "', "
@@ -827,7 +828,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "delete from Persona.Cargos where Id_Cargo='" + ID_Cargo + "'";
+                String sql = "delete from Cargos where Id_Cargo='" + ID_Cargo + "'";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {
@@ -850,7 +851,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "delete from Rol.Usuarios where Id_Usuario='" + ID_Usuario + "'";
+                String sql = "delete from Usuarios where Id_Usuario='" + ID_Usuario + "'";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {
@@ -873,7 +874,7 @@ public class Servletprincipal extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "delete from Cliente.Clientes where Id_Cliente='" + ID_Cliente + "'";
+                String sql = "delete from Clientes where Id_Cliente='" + ID_Cliente + "'";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {

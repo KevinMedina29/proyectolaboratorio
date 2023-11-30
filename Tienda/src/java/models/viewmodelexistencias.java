@@ -14,92 +14,141 @@ package models;
 import java.util.Date;
 
 public class viewmodelexistencias {
-    private int id_existencia;
-    private int id_articulo;
+    private int ID_Existencia;
+    private int ID_Articulo;
     private int cantidad;
     private Date fechaIngreso;
     private String ubicacion;
-    private String preciocompra;
-    private String precioventa;
+    private String precioCompra;
+    private String precioVenta;
     private String estado;
 
-    public viewmodelexistencias() {
-    }
-
-    public viewmodelexistencias(int id_existencia, int id_articulo, int cantidad, Date fechaIngreso, String ubicacion, String preciocompra, String precioventa, String estado) {
-        this.id_existencia = id_existencia;
-        this.id_articulo = id_articulo;
+    public viewmodelexistencias(int ID_Existencia, int ID_Articulo, int cantidad, Date fechaIngreso, String ubicacion, String precioCompra, String precioVenta, String estado) {
+        this.ID_Existencia = ID_Existencia;
+        this.ID_Articulo = ID_Articulo;
         this.cantidad = cantidad;
         this.fechaIngreso = fechaIngreso;
         this.ubicacion = ubicacion;
-        this.preciocompra = preciocompra;
-        this.precioventa = precioventa;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
         this.estado = estado;
     }
 
-    public int getId_existencia() {
-        return id_existencia;
+    public viewmodelexistencias() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setId_existencia(int id_existencia) {
-        this.id_existencia = id_existencia;
+    /**
+     * @return the ID_existencia
+     */
+    public int getID_Existencia() {
+        return ID_Existencia;
     }
 
-    public int getId_articulo() {
-        return id_articulo;
+    /**
+     * @param ID_Existencia the ID_Existencia to set
+     */
+    public void setID_Existencia(int ID_Existencia) {
+        this.ID_Existencia = ID_Existencia;
     }
 
-    public void setId_articulo(int id_articulo) {
-        this.id_articulo = id_articulo;
+    /**
+     * @return the ID_Articulo
+     */
+    public int getID_Articulo() {
+        return ID_Articulo;
     }
 
+    /**
+     * @param ID_Articulo the ID_articulo to set
+     */
+    public void setID_Articulo(int ID_Articulo) {
+        this.ID_Articulo = ID_Articulo;
+    }
+
+    /**
+     * @return the cantidad
+     */
     public int getCantidad() {
         return cantidad;
     }
 
+    /**
+     * @param cantidad the cantidad to set
+     */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
+    /**
+     * @return the fechaIngreso
+     */
     public Date getFechaIngreso() {
         return fechaIngreso;
     }
 
+    /**
+     * @param fechaIngreso the fechaIngreso to set
+     */
     public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
+    /**
+     * @return the ubicacion
+     */
     public String getUbicacion() {
         return ubicacion;
     }
 
+    /**
+     * @param ubicacion the ubicacion to set
+     */
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
 
-    public String getPreciocompra() {
-        return preciocompra;
+    /**
+     * @return the precioCompra
+     */
+    public String getPrecioCompra() {
+        return precioCompra;
     }
 
-    public void setPreciocompra(String preciocompra) {
-        this.preciocompra = preciocompra;
+    /**
+     * @param precioCompra the precioCompra to set
+     */
+    public void setPrecioCompra(String precioCompra) {
+        this.precioCompra = precioCompra;
     }
 
-    public String getPrecioventa() {
-        return precioventa;
+    /**
+     * @return the precioVenta
+     */
+    public String getPrecioVenta() {
+        return precioVenta;
     }
 
-    public void setPrecioventa(String precioventa) {
-        this.precioventa = precioventa;
+    /**
+     * @param precioVenta the precioVenta to set
+     */
+    public void setPrecioVenta(String precioVenta) {
+        this.precioVenta = precioVenta;
     }
 
+    /**
+     * @return the estado
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * @param estado the estado to set
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
     
 }

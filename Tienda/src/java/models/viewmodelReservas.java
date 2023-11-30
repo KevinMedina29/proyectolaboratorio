@@ -14,72 +14,109 @@ import java.util.Date;
 
 
 public class viewmodelReservas {
-    private int id_Reserva;
-    private int id_Cliente;
-    private Date FechaInicio;
-    private Date FechaFin;
-    private String Estado;
-    private String Notas;
+    private int ID_Reserva;
+    private int ID_Cliente;
+    private Date fechaInicio;
+    private Date fechaFin;
+    private String estado;
+    private String notas;
+
+    public viewmodelReservas(int ID_Reserva, int ID_Cliente, Date fechaInicio, Date fechaFin, String estado, String notas) {
+        this.ID_Reserva = ID_Reserva;
+        this.ID_Cliente = ID_Cliente;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.estado = estado;
+        this.notas = notas;
+    }
 
     public viewmodelReservas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public viewmodelReservas(int id_Reserva, int id_Cliente, Date FechaInicio, Date FechaFin, String Estado, String Notas) {
-        this.id_Reserva = id_Reserva;
-        this.id_Cliente = id_Cliente;
-        this.FechaInicio = FechaInicio;
-        this.FechaFin = FechaFin;
-        this.Estado = Estado;
-        this.Notas = Notas;
+    /**
+     * @return the ID_Reserva
+     */
+    public int getID_Reserva() {
+        return ID_Reserva;
     }
 
-    public int getId_Reserva() {
-        return id_Reserva;
+    /**
+     * @param ID_Reserva the ID_Reserva to set
+     */
+    public void setID_Reserva(int ID_Reserva) {
+        this.ID_Reserva = ID_Reserva;
     }
 
-    public void setId_Reserva(int id_Reserva) {
-        this.id_Reserva = id_Reserva;
+    /**
+     * @return the ID_Cliente
+     */
+    public int getID_Cliente() {
+        return ID_Cliente;
     }
 
-    public int getId_Cliente() {
-        return id_Cliente;
+    /**
+     * @param ID_Cliente the ID_Cliente to set
+     */
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
 
-    public void setId_Cliente(int id_Cliente) {
-        this.id_Cliente = id_Cliente;
-    }
-
+    /**
+     * @return the fechaInicio
+     */
     public Date getFechaInicio() {
-        return FechaInicio;
+        return fechaInicio;
     }
 
-    public void setFechaInicio(Date FechaInicio) {
-        this.FechaInicio = FechaInicio;
+    /**
+     * @param fechaInicio the fechaInicio to set
+     */
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
+    /**
+     * @return the fechaFin
+     */
     public Date getFechaFin() {
-        return FechaFin;
+        return fechaFin;
     }
 
-    public void setFechaFin(Date FechaFin) {
-        this.FechaFin = FechaFin;
+    /**
+     * @param fechaFin the fechaFin to set
+     */
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
+    /**
+     * @return the estado
+     */
     public String getEstado() {
-        return Estado;
+        return estado;
     }
 
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
+    /**
+     * @return the notas
+     */
     public String getNotas() {
-        return Notas;
+        return notas;
     }
 
-    public void setNotas(String Notas) {
-        this.Notas = Notas;
+    /**
+     * @param notas the notas to set
+     */
+    public void setNotas(String notas) {
+        this.notas = notas;
     }
+
     
-
 }

@@ -13,60 +13,111 @@ package models;
 import java.util.Date;
 
 public class viewmodelcarritocompras {
-    private int id_carrito;
-    private int id_cliente;
+    private int ID_Carrito;
+    private int ID_Cliente;
     private  Date fecha;
-    private int id_articulo;
+    private int ID_Articulo;
     private int cantidad;
+    private String precio;
 
-    public viewmodelcarritocompras() {
-    }
-
-    public viewmodelcarritocompras(int id_carrito, int id_cliente, Date fecha, int id_articulo, int cantidad) {
-        this.id_carrito = id_carrito;
-        this.id_cliente = id_cliente;
+    public viewmodelcarritocompras(int ID_Carrito, int ID_Cliente, Date fecha, int ID_Articulo, int cantidad, String precio) {
+        this.ID_Carrito = ID_Carrito;
+        this.ID_Cliente = ID_Cliente;
         this.fecha = fecha;
-        this.id_articulo = id_articulo;
+        this.ID_Articulo = ID_Articulo;
         this.cantidad = cantidad;
+        this.precio = precio;
     }
 
-    public int getId_carrito() {
-        return id_carrito;
+    /**
+     * @return the ID_Carrito
+     */
+    public int getID_Carrito() {
+        return ID_Carrito;
     }
 
-    public void setId_carrito(int id_carrito) {
-        this.id_carrito = id_carrito;
+    /**
+     * @param ID_Carrito the ID_Carrito to set
+     */
+    public void setID_Carrito(int ID_Carrito) {
+        this.ID_Carrito = ID_Carrito;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    /**
+     * @return the ID_Cliente
+     */
+    public int getID_Cliente() {
+        return ID_Cliente;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    /**
+     * @param ID_Cliente the ID_Cliente to set
+     */
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
 
+    /**
+     * @return the fecha
+     */
     public Date getFecha() {
         return fecha;
     }
 
+    /**
+     * @param fecha the fecha to set
+     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public int getId_articulo() {
-        return id_articulo;
+    /**
+     * @return the ID_Articulo
+     */
+    public int getID_Articulo() {
+        return ID_Articulo;
     }
 
-    public void setId_articulo(int id_articulo) {
-        this.id_articulo = id_articulo;
+    /**
+     * @param ID_Articulo the ID_Articulo to set
+     */
+    public void setID_Articulo(int ID_Articulo) {
+        this.ID_Articulo = ID_Articulo;
     }
 
+    /**
+     * @return the cantidad
+     */
     public int getCantidad() {
         return cantidad;
     }
 
+    /**
+     * @param cantidad the cantidad to set
+     */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    /**
+     * @return the precio
+     */
+    public String getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    
+
+    
+
+    
+
+    
 }
