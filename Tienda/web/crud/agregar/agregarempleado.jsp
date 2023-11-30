@@ -21,7 +21,7 @@
 
                 <h1 class="mb-4">Agregar nuevo empleado</h1>
 
-                <form method="POST" action="/Tienda_1/ServletPrincipal?accion=AgregarEmpleado">
+                <form method="POST" action="/Tienda/Servletprincipal?accion=agregarempleado">
                     <div class="form-group">
                         <label for="DUI_Empleado">DUI:</label>
                         <input type="text" class="form-control" name="DUI_Empleado" id="DUI_Empleado" required>
@@ -73,7 +73,7 @@
                 </form>
 
                 <div class="mt-4">
-                    <a href="/Tienda_1/?accion=GestionarEmpleados" class="btn btn-secondary">Regresar</a>
+                    <a href="/Tienda/?accion=gestionarempleados" class="btn btn-secondary">Regresar</a>
                 </div>
             </div>
 

@@ -18,7 +18,7 @@
             </c:if>   
             <h1>Agregar nuevo Cargo</h1>
 
-            <form method="POST" action="/Tienda_1/Servletprincipal?accion=agregarcargo">
+            <form method="POST" action="/Tienda/Servletprincipal?accion=agregarcargo">
                 <div class="mb-3">
                     <label for="nombre_cargo" class="form-label"> <strong> Cargo: </strong></label>
                     <input type="text" class="form-control" name="nombre_cargo" id="nombre_cargo" required />
@@ -28,7 +28,7 @@
             </form>
 
             <div class="mt-3">
-                <a href="/Tienda_1/?accion=gestionarcargos" class="btn btn-secondary">Regresar</a>
+                <a href="/Tienda/?accion=gestionarcargos" class="btn btn-secondary">Regresar</a>
             </div>            
 
         </div>

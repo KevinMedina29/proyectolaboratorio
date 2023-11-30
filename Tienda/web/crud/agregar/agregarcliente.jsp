@@ -21,7 +21,7 @@
 
                 <h1 class="mb-4">Agregar nuevo Cliente</h1>
 
-                <form method="POST" action="/Tienda_1/ServletPrincipal?accion=AgregarCliente">
+                <form method="POST" action="/Tienda/Servletprincipal?accion=agregarcliente">
                     <div class="form-group">
                         <label for="NombresCliente">Nombres: </label>
                         <input type="text" class="form-control" name="NombresCliente" id="NombresCliente" required>
@@ -68,7 +68,7 @@
                 </form>
 
                 <div class="mt-4">
-                    <a href="/Tienda_1/?accion=GestionarClientes" class="btn btn-secondary">Regresar</a>
+                    <a href="/Tienda/?accion=gestionarclientes" class="btn btn-secondary">Regresar</a>
                 </div>
             </div>
 

@@ -14,7 +14,7 @@
 
             <div>
                 <button class="btn btn-primary mb-3" onclick="regresar()">Regresar</button>    
-                <a class="btn btn-primary mb-3" href="/ByteCode?accion=AgregarCargo">Agregar Detalle Venta</a><br><br>
+                <a class="btn btn-primary mb-3" href="/Tienda?accion=AgregarCargo">Agregar Detalle Venta</a><br><br>
             </div>
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -40,12 +40,12 @@
                             <td><c:out value="${item.precioUnitario}" /></td>
                             <td><c:out value="${item.total}" /></td>
                             <td class="text-center">
-                                <form method="POST" action="/ByteCode/OpcionesUsuario/Modificar/ModificarCargo.jsp">
+                                <form method="POST" action="/Tienda/OpcionesUsuario/Modificar/ModificarCargo.jsp">
                                     <input type="hidden" name="id_DetalleVenta" value="${item.id_DetalleVenta}" />
                                     <input type="hidden" name="id_Venta" value="${item.id_Venta}" />             
                                     <button type="submit" class="btn btn-warning">Modificar</button>
                                 </form>    
-                                <form method="POST" action="/ByteCode/OpcionesUsuario/Eliminar/EliminarCargo.jsp">
+                                <form method="POST" action="/Tienda/OpcionesUsuario/Eliminar/EliminarCargo.jsp">
                                     <input type="hidden" name="id_DetalleVenta" value="${item.id_DetalleVenta}" />
                                     <input type="hidden" name="id_Venta" value="${item.id_Venta}" />             
                                     <button type="submit" class="m-2 btn btn-danger">Eliminar</button>

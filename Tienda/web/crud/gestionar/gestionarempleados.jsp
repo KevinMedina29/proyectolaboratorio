@@ -14,7 +14,7 @@
 
             <div>
                 <button class="btn btn-primary mb-3" onclick="regresar()">Regresar</button>    
-                <a class="btn btn-primary mb-3" href="/Tienda_1?accion=AgregarEmpleado">Agregar Empleado</a><br><br>
+                <a class="btn btn-primary mb-3" href="/Tienda?accion=AgregarEmpleado">Agregar Empleado</a><br><br>
             </div>
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -45,13 +45,13 @@
                             <td><c:out value="${item.ID_Cargo}" /></td>
                             <td><c:out value="${item.Direccion}" /></td>
                             <td class="text-center">
-                                <form method="POST" action="/ByteCode/CRUD/Modificar/ModificarEmpleado.jsp">
+                                <form method="POST" action="/Tienda/crud/modificar/modificarempleado.jsp">
                                     <input type="hidden" name="ID_Empleado" value="${item.ID_Empleado}" />
                                     <input type="hidden" name="nombresEmpleado" value="${item.NombresEmpleado}" />             
                                     <input type="hidden" name="apellidosEmpleado" value="${item.ApellidosEmpleado}" />             
                                     <button type="submit" class="btn btn-warning">Modificar</button>
                                 </form>    
-                                <form method="POST" action="/ByteCode/CRUD/Eliminar/EliminarEmpleado.jsp">
+                                <form method="POST" action="/Tienda/crud/eliminar/eliminarempleado.jsp">
                                     <input type="hidden" name="ID_Empleado" value="${item.ID_Empleado}" />
                                     <input type="hidden" name="DUI_Empleado" value="${item.DUI_Empleado}" />
                                     <input type="hidden" name="ID_Cargo" value="${item.ID_Cargo}" />

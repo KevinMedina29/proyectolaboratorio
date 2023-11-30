@@ -40,12 +40,12 @@
                             <td><c:out value="${item.id_Proveedor}" /></td>
                             <td><c:out value="${item.id_Categoria}" /></td>
                             <td class="text-center">
-                                <form method="POST" action="/Tienda_1/OpcionesUsuario/modificar/modificarcargo.jsp">
+                                <form method="POST" action="/Tienda/OpcionesUsuario/modificar/modificarcargo.jsp">
                                     <input type="hidden" name="id_Articulo" value="${item.id_Articulo}" />
                                     <input type="hidden" name="Codigo" value="${item.Codigo}" />             
                                     <button type="submit" class="btn btn-warning">Modificar</button>
                                 </form>    
-                                <form method="POST" action="/Tienda_1/OpcionesUsuario/eliminar/eliminarcargo.jsp">
+                                <form method="POST" action="/Tienda/OpcionesUsuario/eliminar/eliminarcargo.jsp">
                                     <input type="hidden" name="id_Articulo" value="${item.id_Articulo}" />
                                     <input type="hidden" name="Codigo" value="${item.Codigo}" />             
                                     <button type="submit" class="m-2 btn btn-danger">Eliminar</button>
