@@ -293,14 +293,14 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodelingreso compra = new viewmodelingreso();
-                    compra.setId_Compra(rs.getInt("Id_Compra"));
-                    compra.setProveedor(rs.getString("Proveedor"));
-                    compra.setNombreCompra(rs.getString("NombreCompra"));
-                    compra.setFecha_Compra(rs.getDate("Fecha_Compra"));
-                    compra.setTotal(rs.getDouble("Total"));
+                    compra.setID_Ingreso(rs.getInt("ID_Ingreso"));
+                    compra.setFecha(rs.getDate("Fecha"));
+                    compra.setTipo_Comprobante(rs.getString("Tipo_Comprobante"));
+                    compra.setSerie_Comprobante(rs.getString("Serie_Comprobante"));
+                    compra.setTotal(rs.getString("Total"));
                     compra.setEstado(rs.getString("Estado"));
-                    compra.setId_Empleado(rs.getInt("Id_Empleado"));
-                    compra.setDescripcionCompra(rs.getString("DescripcionCompra"));
+                    compra.setNum_Comprobante(rs.getString("Num_Comprobante"));
+                    compra.setID_Empleado(rs.getInt("ID_Empleado"));
 
                     listaIngreso.add(compra);
                 }
@@ -328,12 +328,11 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodeldetalleingreso detalleCompra = new viewmodeldetalleingreso();
-                    detalleCompra.setId_DetalleCompra(rs.getInt("Id_DetalleCompra"));
-                    detalleCompra.setId_Compra(rs.getInt("Id_Compra"));
+                    detalleCompra.setID_Detalle_Ingreso(rs.getInt("Id_DetalleCompra"));
+                    detalleCompra.setID_Ingreso(rs.getInt("Id_Compra"));
                     detalleCompra.setCantidad(rs.getInt("Cantidad"));
-                    detalleCompra.setPrecioUnitario(rs.getDouble("PrecioUnitario"));
-                    detalleCompra.setEstadoCompra(rs.getString("EstadoCompra"));
-                    detalleCompra.setTotal(rs.getDouble("Total"));
+                    detalleCompra.setPrecio(rs.getString("PrecioUnitario"));
+                    detalleCompra.setID_Categoria(rs.getInt("EstadoCompra"));
                     listaDetalleIngreso.add(detalleCompra);
                 }
                 request.setAttribute("listaDetalleIngreso", listaDetalleIngreso);
@@ -360,7 +359,7 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodelmetodospago metodoPago = new viewmodelmetodospago();
-                    metodoPago.setIdMetodoPago(rs.getInt("Id_Metodo_Pago"));
+                    metodoPago.setID_Metodo_Pago(rs.getInt("ID_Metodo_Pago"));
                     metodoPago.setMetodo(rs.getString("Metodo"));
 
                     listaMetodosPago.add(metodoPago);
@@ -381,18 +380,20 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Ventas.Pagos";
+                String sqlQuery = "select * from  Reservas";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
-                ArrayList<ViewModelPagos> listaPagos = new ArrayList<>();
+                ArrayList<viewmodelReservas> listaPagos = new ArrayList<>();
 
                 while (rs.next()) {
-                    ViewModelPagos pago = new ViewModelPagos();
-                    pago.setId_Pago(rs.getInt("Id_Pago"));
-                    pago.setId_MetodoPago(rs.getInt("Id_MetodoPago"));
-                    pago.setMonto(rs.getDouble("Monto"));
-                    pago.setFechaPago(rs.getDate("FechaPago"));
+                    viewmodelReservas pago = new viewmodelReservas();
+                    pago.setID_Reserva(rs.getInt("ID_Reserva"));
+                    pago.setID_Cliente(rs.getInt("ID_Cliente"));
+                    pago.setEstado(rs.getString("Estado"));
+                    pago.setFechaInicio(rs.getDate("FechaInicio"));
+                    pago.setFechaFin(rs.getDate("FechaFin"));
+                    pago.setNotas(rs.getString("Notas"));
                     listaPagos.add(pago);
                 }
                 request.setAttribute("listaPagos", listaPagos);
@@ -450,11 +451,11 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodelcarritocompras carritoCompras = new viewmodelcarritocompras();
-                    carritoCompras.setId_Carrito(rs.getInt("Id_Carrito"));
-                    carritoCompras.setId_Producto(rs.getInt("Id_Producto"));
-                    carritoCompras.setId_Venta(rs.getInt("Id_Venta"));
+                    carritoCompras.setID_Carrito(rs.getInt("ID_Carrito"));
+                    carritoCompras.setID_Articulo(rs.getInt("ID_Articulo"));
+                    carritoCompras.setID_Cliente(rs.getInt("ID_Cliente"));
                     carritoCompras.setCantidad(rs.getInt("Cantidad"));
-                    carritoCompras.setFechaAgregado(rs.getDate("FechaAgregado"));
+                    carritoCompras.setFecha(rs.getDate("Fecha"));
                     listaCarrito.add(carritoCompras);
                 }
                 request.setAttribute("listaCarrito", listaCarrito);
@@ -481,13 +482,13 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodeldetalleventa detalleVenta = new viewmodeldetalleventa();
-                    detalleVenta.setId_DetalleVenta(rs.getInt("Id_DetalleVenta"));
-                    detalleVenta.setId_Venta(rs.getInt("Id_Venta"));
-                    detalleVenta.setId_Carrito(rs.getInt("Id_Carrito"));
-                    detalleVenta.setId_Producto(rs.getInt("Id_Producto"));
+                        detalleVenta.setID_Detalle_Venta(rs.getInt("Id_DetalleVenta"));
+                    detalleVenta.setID_Venta(rs.getInt("Id_Venta"));
+                    detalleVenta.setCantidad(rs.getInt("Id_Carrito"));
+                    detalleVenta.setID_Articulo(rs.getInt("Id_Producto"));
                     detalleVenta.setCantidad(rs.getInt("Cantidad"));
-                    detalleVenta.setPrecioUnitario(rs.getDouble("PrecioUnitario"));
-                    detalleVenta.setTotal(rs.getDouble("Total"));
+                    detalleVenta.setPrecio_Unitario(rs.getString("PrecioUnitario"));
+                    detalleVenta.setTotal(rs.getString("Total"));
 
                     listaDetalleVenta.add(detalleVenta);
                 }
