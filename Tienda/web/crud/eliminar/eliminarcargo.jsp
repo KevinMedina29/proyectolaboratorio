@@ -9,7 +9,7 @@
     <body>
         <h1>Eliminar Cargo</h1>
         
-        <form method="POST" action="/Tienda_1/servlePrincipal?accion=eliminarcargos">
+        <form method="POST" action="/Tienda/Servleprincipal?accion=eliminarcargos">
             <div>
                 <label>ID.empleado: ${param.id_cargo}</label><br>
                 <label>cargo ${param.id_cargo}</label>
@@ -18,7 +18,7 @@
                 <input type="submit" value="Eliminar" onclick="return confirm('¿Desea eliminar el cargo?')" /><br><br>
             </div>
                 <div>
-                    <a href="/Tienda_1/?accion=gestionarcargos">Regresar</a><br><br>
+                    <a href="/Tienda/?accion=gestionarcargos">Regresar</a><br><br>
                 </div>
         </form>
     </body>

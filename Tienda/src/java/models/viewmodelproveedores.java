@@ -17,6 +17,10 @@ public class viewmodelproveedores {
         this.notas = notas;
     }
 
+    public viewmodelproveedores() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getID_Proveedor() {
         return ID_Proveedor;
     }

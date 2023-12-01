@@ -14,7 +14,6 @@ package models;
 
 import java.util.Date;
 
-
 public class viewmodelventa {
     private int ID_Venta;
     private int ID_Empleado;
@@ -38,6 +37,10 @@ public class viewmodelventa {
         this.ID_Metodo_Pago = ID_Metodo_Pago;
         this.estado = estado;
         this.ID_Reserva = ID_Reserva;
+    }
+
+    public viewmodelventa() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**

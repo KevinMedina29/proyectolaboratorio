@@ -23,7 +23,7 @@
         </form>
 
         <div>
-            <a class="btn btn-secondary" href="/Tienda_1/?accion=gestionarcliente">Regresar</a><br><br>
+            <a class="btn btn-secondary" href="/Tienda/?accion=gestionarcliente">Regresar</a><br><br>
         </div>
     </body>
 </html>

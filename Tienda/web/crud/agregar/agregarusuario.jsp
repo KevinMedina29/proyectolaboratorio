@@ -18,7 +18,7 @@
             </c:if>   
             <h1>Agregar nuevo Usuario</h1>
 
-            <form method="POST" action="/ByteCode/ServletPrincipal?accion=AgregarUsuario">
+            <form method="POST" action="/Tienda/Servletprincipal?accion=agregarusuario">
                 <div class="mb-3">
                     <label for="id_Empleado" class="form-label"> <strong> ID Empleado </strong></label>
                     <input type="text" class="form-control" name="id_Empleado" id="id_Empleado" required />
@@ -40,7 +40,7 @@
             </form>
 
             <div class="mt-3">
-                <a href="/ByteCode/?accion=GestionarUsuarios" class="btn btn-secondary">Regresar</a>
+                <a href="/Tienda/?accion=gestionarusuarios" class="btn btn-secondary">Regresar</a>
             </div>            
 
         </div>

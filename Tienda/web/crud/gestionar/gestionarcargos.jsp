@@ -14,7 +14,7 @@
 
             <div>
                 <button class="btn btn-primary mb-3" onclick="regresar()">Regresar</button>    
-                <a class="btn btn-primary mb-3" href="/Tienda_1?accion=agregarcargo">Agregar Cargo</a><br><br>
+                <a class="btn btn-primary mb-3" href="/Tienda?accion=agregarcargo">Agregar Cargo</a><br><br>
             </div>
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -30,12 +30,12 @@
                             <td><c:out value="${item.id_cargo}" /></td>
                             <td><c:out value="${item.Nombre_Cargo}" /></td>
                             <td class="text-center">
-                                <form method="POST" action="/Tienda_1/crud/modificar/modificarcargo.jsp">
+                                <form method="POST" action="/Tienda/crud/modificar/modificarcargo.jsp">
                                     <input type="hidden" name="id_cargo" value="${item.id_cargo}" />
                                     <input type="hidden" name="nombre_cargo" value="${item.nombre_cargo}" />             
                                     <button type="submit" class="btn btn-warning">Modificar</button>
                                 </form>    
-                                <form method="POST" action="/Tienda_1/cru/eliminar/eliminarcargo.jsp">
+                                <form method="POST" action="/Tienda/cru/eliminar/eliminarcargo.jsp">
                                     <input type="hidden" name="id_cargo" value="${item.id_cargo}" />
                                     <input type="hidden" name="nombre_cargo" value="${item.nombre_cargo}" />             
                                     <button type="submit" class="m-2 btn btn-danger">Eliminar</button>

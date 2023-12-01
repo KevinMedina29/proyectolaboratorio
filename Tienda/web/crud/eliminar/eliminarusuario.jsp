@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Eliminar Usuario </h1>
-        <form method="POST" action="/TiendaLacteos/Servletprincipal?accion=EliminarUsuario">
+        <form method="POST" action="/Tienda/Servleprincipal?accion=eliminarusuario">
             <div>
                 <label>ID Usuario ${param.id_Usuario}</label><br>
                 <label>ID Empleado ${param.id_Empleado}</label><br>
@@ -20,7 +20,7 @@
                 <input type="submit" value="Eliminar" onclick="return confirm('¿Desea eliminar el Cargo?')" /><br><br>
             </div>
                 <div>
-                    <a href="/TiendaLacteos/?accion=gestionarusuarios">Regresar</a><br><br>
+                    <a href="/Tienda/?accion=gestionarusuarios">Regresar</a><br><br>
                 </div>
 
         </form>

@@ -33,6 +33,10 @@ public class viewmodelenvios {
         this.notas = notas;
     }
 
+    public viewmodelenvios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * @return the ID_Envio
      */
