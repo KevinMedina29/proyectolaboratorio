@@ -294,6 +294,7 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelingreso compra = new viewmodelingreso();
                     compra.setID_Ingreso(rs.getInt("ID_Ingreso"));
+<<<<<<< HEAD
                     compra.setID_Empleado(rs.getInt("ID_Empleado"));
                     compra.setTipo_Comprobante(rs.getString("Tipo_Comprobante"));
                     compra.setSerie_Comprobante(rs.getString("Serie_Comprobante"));
@@ -301,6 +302,15 @@ public class Servletprincipal extends HttpServlet {
                     compra.setFecha(rs.getDate("Fecha"));
                     compra.setTotal(rs.getString("Total"));
                     compra.setEstado(rs.getString("Estado"));
+=======
+                    compra.setFecha(rs.getDate("Fecha"));
+                    compra.setTipo_Comprobante(rs.getString("Tipo_Comprobante"));
+                    compra.setSerie_Comprobante(rs.getString("Serie_Comprobante"));
+                    compra.setTotal(rs.getString("Total"));
+                    compra.setEstado(rs.getString("Estado"));
+                    compra.setNum_Comprobante(rs.getString("Num_Comprobante"));
+                    compra.setID_Empleado(rs.getInt("ID_Empleado"));
+>>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
 
                     listaIngreso.add(compra);
                 }
@@ -328,11 +338,19 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodeldetalleingreso detalleCompra = new viewmodeldetalleingreso();
+<<<<<<< HEAD
                     detalleCompra.setID_Detalle_Ingreso(rs.getInt("ID_Detalle_Ingreso"));
                     detalleCompra.setID_Ingreso(rs.getInt("ID_Ingreso"));
                     detalleCompra.setID_Categoria(rs.getInt("ID_Categoria"));
                     detalleCompra.setCantidad(rs.getInt("cantidad"));
                     detalleCompra.setPrecio(rs.getString("precio"));
+=======
+                    detalleCompra.setID_Detalle_Ingreso(rs.getInt("Id_DetalleCompra"));
+                    detalleCompra.setID_Ingreso(rs.getInt("Id_Compra"));
+                    detalleCompra.setCantidad(rs.getInt("Cantidad"));
+                    detalleCompra.setPrecio(rs.getString("PrecioUnitario"));
+                    detalleCompra.setID_Categoria(rs.getInt("EstadoCompra"));
+>>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
                     listaDetalleIngreso.add(detalleCompra);
                 }
                 request.setAttribute("listaDetalleIngreso", listaDetalleIngreso);
@@ -360,7 +378,11 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelmetodospago metodoPago = new viewmodelmetodospago();
                     metodoPago.setID_Metodo_Pago(rs.getInt("ID_Metodo_Pago"));
+<<<<<<< HEAD
                     metodoPago.setMetodo(rs.getString("metodo"));
+=======
+                    metodoPago.setMetodo(rs.getString("Metodo"));
+>>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
 
                     listaMetodosPago.add(metodoPago);
                 }
@@ -380,6 +402,7 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
+<<<<<<< HEAD
                 String sqlQuery = "select * from  Proveedores";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
@@ -395,6 +418,23 @@ public class Servletprincipal extends HttpServlet {
                     proveedores.setCorreo(rs.getString("correo"));
                     proveedores.setNotas(rs.getString("notas"));
                     listaProveedores.add(proveedores);
+=======
+                String sqlQuery = "select * from  Reservas";
+                PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+                ResultSet rs = pstmt.executeQuery();
+
+                ArrayList<viewmodelReservas> listaPagos = new ArrayList<>();
+
+                while (rs.next()) {
+                    viewmodelReservas pago = new viewmodelReservas();
+                    pago.setID_Reserva(rs.getInt("ID_Reserva"));
+                    pago.setID_Cliente(rs.getInt("ID_Cliente"));
+                    pago.setEstado(rs.getString("Estado"));
+                    pago.setFechaInicio(rs.getDate("FechaInicio"));
+                    pago.setFechaFin(rs.getDate("FechaFin"));
+                    pago.setNotas(rs.getString("Notas"));
+                    listaPagos.add(pago);
+>>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
                 }
                 request.setAttribute("listaProveedores", listaProveedores);
 
@@ -457,11 +497,18 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelcarritocompras carritoCompras = new viewmodelcarritocompras();
                     carritoCompras.setID_Carrito(rs.getInt("ID_Carrito"));
+<<<<<<< HEAD
                     carritoCompras.setID_Cliente(rs.getInt("ID_Cliente"));
                     carritoCompras.setFecha(rs.getDate("fecha"));
                     carritoCompras.setID_Articulo(rs.getInt("ID_Articulo"));
                     carritoCompras.setCantidad(rs.getInt("cantidad"));
                     carritoCompras.setPrecio(rs.getString("precio"));
+=======
+                    carritoCompras.setID_Articulo(rs.getInt("ID_Articulo"));
+                    carritoCompras.setID_Cliente(rs.getInt("ID_Cliente"));
+                    carritoCompras.setCantidad(rs.getInt("Cantidad"));
+                    carritoCompras.setFecha(rs.getDate("Fecha"));
+>>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
                     listaCarrito.add(carritoCompras);
                 }
                 request.setAttribute("listaCarrito", listaCarrito);
@@ -488,6 +535,7 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodeldetalleventa detalleVenta = new viewmodeldetalleventa();
+<<<<<<< HEAD
                     detalleVenta.setID_Detalle_Venta(rs.getInt("ID_Detalle_Venta"));
                     detalleVenta.setID_Venta(rs.getInt("ID_Venta"));
                     detalleVenta.setID_Articulo(rs.getInt("ID_Articulo"));
@@ -495,6 +543,15 @@ public class Servletprincipal extends HttpServlet {
                     detalleVenta.setPrecio_Unitario(rs.getString("Precio_Unitario"));
                     detalleVenta.setImpuesto(rs.getString("impuesto"));
                     detalleVenta.setTotal(rs.getString("total"));
+=======
+                        detalleVenta.setID_Detalle_Venta(rs.getInt("Id_DetalleVenta"));
+                    detalleVenta.setID_Venta(rs.getInt("Id_Venta"));
+                    detalleVenta.setCantidad(rs.getInt("Id_Carrito"));
+                    detalleVenta.setID_Articulo(rs.getInt("Id_Producto"));
+                    detalleVenta.setCantidad(rs.getInt("Cantidad"));
+                    detalleVenta.setPrecio_Unitario(rs.getString("PrecioUnitario"));
+                    detalleVenta.setTotal(rs.getString("Total"));
+>>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
 
                     listaDetalleVenta.add(detalleVenta);
                 }
