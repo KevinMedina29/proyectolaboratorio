@@ -294,15 +294,6 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelingreso compra = new viewmodelingreso();
                     compra.setID_Ingreso(rs.getInt("ID_Ingreso"));
-<<<<<<< HEAD
-                    compra.setID_Empleado(rs.getInt("ID_Empleado"));
-                    compra.setTipo_Comprobante(rs.getString("Tipo_Comprobante"));
-                    compra.setSerie_Comprobante(rs.getString("Serie_Comprobante"));
-                    compra.setNum_Comprobante(rs.getString("Num_Comprobante"));
-                    compra.setFecha(rs.getDate("Fecha"));
-                    compra.setTotal(rs.getString("Total"));
-                    compra.setEstado(rs.getString("Estado"));
-=======
                     compra.setFecha(rs.getDate("Fecha"));
                     compra.setTipo_Comprobante(rs.getString("Tipo_Comprobante"));
                     compra.setSerie_Comprobante(rs.getString("Serie_Comprobante"));
@@ -310,7 +301,6 @@ public class Servletprincipal extends HttpServlet {
                     compra.setEstado(rs.getString("Estado"));
                     compra.setNum_Comprobante(rs.getString("Num_Comprobante"));
                     compra.setID_Empleado(rs.getInt("ID_Empleado"));
->>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
 
                     listaIngreso.add(compra);
                 }
@@ -322,9 +312,9 @@ public class Servletprincipal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    //fin ingreso
-    // inicio  Detalles de ingreso
-    public void mostrarDetallesIngreso(HttpServletRequest request, HttpServletResponse response) {
+    //fin compras
+    // inicio  Detalles de compra
+    public void mostrarDetallesCompra(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
@@ -338,19 +328,11 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodeldetalleingreso detalleCompra = new viewmodeldetalleingreso();
-<<<<<<< HEAD
-                    detalleCompra.setID_Detalle_Ingreso(rs.getInt("ID_Detalle_Ingreso"));
-                    detalleCompra.setID_Ingreso(rs.getInt("ID_Ingreso"));
-                    detalleCompra.setID_Categoria(rs.getInt("ID_Categoria"));
-                    detalleCompra.setCantidad(rs.getInt("cantidad"));
-                    detalleCompra.setPrecio(rs.getString("precio"));
-=======
                     detalleCompra.setID_Detalle_Ingreso(rs.getInt("Id_DetalleCompra"));
                     detalleCompra.setID_Ingreso(rs.getInt("Id_Compra"));
                     detalleCompra.setCantidad(rs.getInt("Cantidad"));
                     detalleCompra.setPrecio(rs.getString("PrecioUnitario"));
                     detalleCompra.setID_Categoria(rs.getInt("EstadoCompra"));
->>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
                     listaDetalleIngreso.add(detalleCompra);
                 }
                 request.setAttribute("listaDetalleIngreso", listaDetalleIngreso);
@@ -361,7 +343,7 @@ public class Servletprincipal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    //fin detalles de ingreso
+    //fin detalles de compra
     // inicio metodos de pago
     public void mostrarMetodosPago(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -378,11 +360,7 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelmetodospago metodoPago = new viewmodelmetodospago();
                     metodoPago.setID_Metodo_Pago(rs.getInt("ID_Metodo_Pago"));
-<<<<<<< HEAD
-                    metodoPago.setMetodo(rs.getString("metodo"));
-=======
                     metodoPago.setMetodo(rs.getString("Metodo"));
->>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
 
                     listaMetodosPago.add(metodoPago);
                 }
@@ -396,29 +374,12 @@ public class Servletprincipal extends HttpServlet {
     }
     //fin metodos de pago
     //inicio de pagos
-    public void mostrarProveedores(HttpServletRequest request, HttpServletResponse response) {
+    public void mostrarPagos(HttpServletRequest request, HttpServletResponse response) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-<<<<<<< HEAD
-                String sqlQuery = "select * from  Proveedores";
-                PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
-                ResultSet rs = pstmt.executeQuery();
-
-                ArrayList<viewmodelproveedores> listaProveedores = new ArrayList<>();
-
-                while (rs.next()) {
-                    viewmodelproveedores proveedores = new viewmodelproveedores();
-                    proveedores.setID_Proveedor(rs.getInt("ID_Proveedor"));
-                    proveedores.setNombre(rs.getString("nombre"));
-                    proveedores.setDireccion(rs.getString("direccion"));
-                    proveedores.setTelefono(rs.getString("telefono"));
-                    proveedores.setCorreo(rs.getString("correo"));
-                    proveedores.setNotas(rs.getString("notas"));
-                    listaProveedores.add(proveedores);
-=======
                 String sqlQuery = "select * from  Reservas";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
@@ -434,9 +395,8 @@ public class Servletprincipal extends HttpServlet {
                     pago.setFechaFin(rs.getDate("FechaFin"));
                     pago.setNotas(rs.getString("Notas"));
                     listaPagos.add(pago);
->>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
                 }
-                request.setAttribute("listaProveedores", listaProveedores);
+                request.setAttribute("listaPagos", listaPagos);
 
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -444,7 +404,7 @@ public class Servletprincipal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    //fin de proveedores
+    //fin de pagos
     //inicio Ventas
     public void mostrarVentas(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -461,15 +421,10 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelventa venta = new viewmodelventa();
                     venta.setID_Venta(rs.getInt("ID_Venta"));
-                    venta.setID_Empleado(rs.getInt("ID_Empleado"));
                     venta.setID_Cliente(rs.getInt("ID_Cliente"));
-                    venta.setTipo_Comprobante(rs.getString("Tipo_Comprobante"));
-                    venta.setSerie_Comprobante(rs.getString("Serie_Comprobante"));
-                    venta.setNum_Comprobante(rs.getString("Num_Comprobante"));
-                    venta.setFecha(rs.getDate("fecha"));
+                    venta.setID_Empleado(rs.getInt("ID_Empleado"));
                     venta.setID_Metodo_Pago(rs.getInt("ID_Metodo_Pago"));
-                    venta.setEstado(rs.getString("estado"));
-                    venta.setID_Reserva(rs.getInt("ID_Reserva"));
+                    venta.setFecha(rs.getDate("Fecha"));
                     listaVentas.add(venta);
                 }
                 request.setAttribute("listaVentas", listaVentas);
@@ -497,18 +452,10 @@ public class Servletprincipal extends HttpServlet {
                 while (rs.next()) {
                     viewmodelcarritocompras carritoCompras = new viewmodelcarritocompras();
                     carritoCompras.setID_Carrito(rs.getInt("ID_Carrito"));
-<<<<<<< HEAD
-                    carritoCompras.setID_Cliente(rs.getInt("ID_Cliente"));
-                    carritoCompras.setFecha(rs.getDate("fecha"));
-                    carritoCompras.setID_Articulo(rs.getInt("ID_Articulo"));
-                    carritoCompras.setCantidad(rs.getInt("cantidad"));
-                    carritoCompras.setPrecio(rs.getString("precio"));
-=======
                     carritoCompras.setID_Articulo(rs.getInt("ID_Articulo"));
                     carritoCompras.setID_Cliente(rs.getInt("ID_Cliente"));
                     carritoCompras.setCantidad(rs.getInt("Cantidad"));
                     carritoCompras.setFecha(rs.getDate("Fecha"));
->>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
                     listaCarrito.add(carritoCompras);
                 }
                 request.setAttribute("listaCarrito", listaCarrito);
@@ -527,7 +474,7 @@ public class Servletprincipal extends HttpServlet {
 
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  DetalleVenta";
+                String sqlQuery = "select * from  Ventas.DetalleVenta";
                 PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
                 ResultSet rs = pstmt.executeQuery();
 
@@ -535,15 +482,6 @@ public class Servletprincipal extends HttpServlet {
 
                 while (rs.next()) {
                     viewmodeldetalleventa detalleVenta = new viewmodeldetalleventa();
-<<<<<<< HEAD
-                    detalleVenta.setID_Detalle_Venta(rs.getInt("ID_Detalle_Venta"));
-                    detalleVenta.setID_Venta(rs.getInt("ID_Venta"));
-                    detalleVenta.setID_Articulo(rs.getInt("ID_Articulo"));
-                    detalleVenta.setCantidad(rs.getInt("cantidad"));
-                    detalleVenta.setPrecio_Unitario(rs.getString("Precio_Unitario"));
-                    detalleVenta.setImpuesto(rs.getString("impuesto"));
-                    detalleVenta.setTotal(rs.getString("total"));
-=======
                         detalleVenta.setID_Detalle_Venta(rs.getInt("Id_DetalleVenta"));
                     detalleVenta.setID_Venta(rs.getInt("Id_Venta"));
                     detalleVenta.setCantidad(rs.getInt("Id_Carrito"));
@@ -551,7 +489,6 @@ public class Servletprincipal extends HttpServlet {
                     detalleVenta.setCantidad(rs.getInt("Cantidad"));
                     detalleVenta.setPrecio_Unitario(rs.getString("PrecioUnitario"));
                     detalleVenta.setTotal(rs.getString("Total"));
->>>>>>> 83250eda1b742a8f573f1cde44ece28bf89837c6
 
                     listaDetalleVenta.add(detalleVenta);
                 }
@@ -564,40 +501,6 @@ public class Servletprincipal extends HttpServlet {
         }
     }
     //Fin detalle de ventas
-    //Inicio envios
-    public void mostrarEnvios(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-            try (Connection conn = DriverManager.getConnection(url)) {
-                request.setAttribute("mensaje_conexion", "Ok!");
-                String sqlQuery = "select * from  Envios";
-                PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
-                ResultSet rs = pstmt.executeQuery();
-
-                ArrayList<viewmodelenvios> listaEnvios = new ArrayList<>();
-
-                while (rs.next()) {
-                    viewmodelenvios envios = new viewmodelenvios();
-                    envios.setID_Envio(rs.getInt("ID_Envio"));
-                    envios.setID_Cliente(rs.getInt("ID_Cliente"));
-                    envios.setID_Empleado(rs.getInt("ID_Empleado"));
-                    envios.setFechaEnvio(rs.getDate("fechaEvio"));
-                    envios.setEstado(rs.getString("estado"));
-                    envios.setMetodoEnvio(rs.getString("metodoEnvio"));
-                    envios.setNotas(rs.getString("notas"));
-
-                    listaEnvios.add(envios);
-                }
-                request.setAttribute("listaEnvios", listaEnvios);
-
-            }
-        } catch (SQLException | ClassNotFoundException ex) {
-            request.setAttribute("mensaje_conexion", ex.getMessage());
-            ex.printStackTrace();
-        }
-    }
-    //Fin Envios
     
     //FUNCIONES DE INSERT ------------------------------------------------------------
     //Empleados Insert
@@ -606,28 +509,28 @@ public class Servletprincipal extends HttpServlet {
 
         //El ID de los empleados es autoincrementable
         String DUI_Empleado = request.getParameter("DUI_Empleado");
-        String nombresEmpleado = request.getParameter("nombresEmpleado");
-        String apellidosEmpleado = request.getParameter("apellidosEmpleado");
-        String fechaNacEmpleado = request.getParameter("fechaNacEmpleado");
-        String telefono = request.getParameter("telefono");
-        String correo = request.getParameter("correo");
-        String direccion = request.getParameter("direccion");
+        String nombresEmpleado = request.getParameter("NombresEmpleado");
+        String apellidosEmpleado = request.getParameter("ApellidosEmpleado");
+        String fechaNacEmpleado = request.getParameter("FechaNacEmpleado");
+        String telefonoEmpleado = request.getParameter("Telefono");
+        String correo = request.getParameter("Correo");
         String ID_Cargo = request.getParameter("ID_Cargo");
+        String Direccion = request.getParameter("Direccion");
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection conn = DriverManager.getConnection(url)) {
                 request.setAttribute("mensaje_conexion", "Ok!");
-                String sql = "insert into Empleados values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "insert into Empleados values (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, DUI_Empleado);
                 pstmt.setString(3, nombresEmpleado);
                 pstmt.setString(4, apellidosEmpleado);
                 pstmt.setString(5, fechaNacEmpleado);
-                pstmt.setString(6, telefono);
+                pstmt.setString(6, telefonoEmpleado);
                 pstmt.setString(7, correo);
-                pstmt.setString(8, direccion);
-                pstmt.setString(9, ID_Cargo);
+                pstmt.setString(8, ID_Cargo);
+                pstmt.setString(9, Direccion);
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {
                     request.getSession().setAttribute("exito", true);
@@ -643,7 +546,7 @@ public class Servletprincipal extends HttpServlet {
     //FIn Empleados Insert
     //Cargo Insert
     public void agregarCargo(HttpServletRequest request, HttpServletResponse response) {
-        String Nombre_Cargo = request.getParameter("Nombre_Cargo");
+        String Cargo = request.getParameter("Cargo");
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -651,7 +554,7 @@ public class Servletprincipal extends HttpServlet {
                 request.setAttribute("mensaje_conexion", "Ok!");
                 String sql = "insert into Cargos values ( ? )";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, Nombre_Cargo);
+                pstmt.setString(1, Cargo);
 
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {
@@ -669,10 +572,10 @@ public class Servletprincipal extends HttpServlet {
     //Usuario Insert
     public void agregarUsuario(HttpServletRequest request, HttpServletResponse response) {
 
-        String ID_Empleado = request.getParameter("ID_Empleado");
-        String ID_Rol = request.getParameter("ID_Rol");
-        String usuario = request.getParameter("usuario");
-        String clave = request.getParameter("clave");
+        String id_Empleado = request.getParameter("id_Empleado");
+        String Id_Rol = request.getParameter("id_Rol");
+        String Usuario = request.getParameter("usuario");
+        String Clave = request.getParameter("clave");
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -680,10 +583,10 @@ public class Servletprincipal extends HttpServlet {
                 request.setAttribute("mensaje_conexion", "Ok!");
                 String sql = "insert into Usuarios values ( ?,?,?,? )";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, ID_Empleado);
-                pstmt.setString(2, ID_Rol);
-                pstmt.setString(3, usuario);
-                pstmt.setString(4, clave);
+                pstmt.setString(1, id_Empleado);
+                pstmt.setString(2, Id_Rol);
+                pstmt.setString(3, Usuario);
+                pstmt.setString(4, Clave);
 
                 int registros = pstmt.executeUpdate();
                 if (registros > 0) {
@@ -997,10 +900,10 @@ public class Servletprincipal extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletPrincipal</title>");
+            out.println("<title>Servlet Servletprincipal</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletPrincipal at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Servletprincipal at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -1014,72 +917,72 @@ public class Servletprincipal extends HttpServlet {
             request.getRequestDispatcher("/Login.jsp").forward(request, response);
         } else if (accion.equals("Login")) {
             request.getRequestDispatcher("/Login.jsp").forward(request, response);
-        } else if (accion.equals("GestionarCargos")) {
+        } else if (accion.equals("gestionarcargos")) {
             mostrarCargos(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarCargos.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarcargos.jsp").forward(request, response);
         } else if (accion.equals("GestionarEmpleados")) {
             mostrarEmpleados(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarEmpleados.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarempleados.jsp").forward(request, response);
         } else if (accion.equals("GestionarUsuarios")) {
             mostrarUsuarios(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarUsuarios.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarusuarios.jsp").forward(request, response);
         } else if (accion.equals("GestionarClientes")) {
             mostrarClientes(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarClientes.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarclientes.jsp").forward(request, response);
         } else if (accion.equals("GestionarInventario")) {
-            mostrarInventario(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarInventario.jsp").forward(request, response);
+            mostrarReserva(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarinventario.jsp").forward(request, response);
         } else if (accion.equals("GestionarProductos")) {
-            mostrarProducto(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarProductos.jsp").forward(request, response);
-        } else if (accion.equals("GestionarDescuento")) {
-            mostrarDescuento(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarDescuento.jsp").forward(request, response);
+            mostrarArticulo(request, response);
+            request.getRequestDispatcher("/crud/gestionar/Gestionararticulos.jsp").forward(request, response);
+        } else if (accion.equals("GestionarArticulo")) {
+            mostrarIngreso(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionardescuento.jsp").forward(request, response);
         } else if (accion.equals("GestionarCompra")) {
-            mostrarCompras(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarCompra.jsp").forward(request, response);
+            mostrarExistencias(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarcompra.jsp").forward(request, response);
         } else if (accion.equals("GestionarDetalleCompra")) {
             mostrarDetallesCompra(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarDetalleCompra.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionardetallecompra.jsp").forward(request, response);
         } else if (accion.equals("GestionarMetodosPago")) {
             mostrarMetodosPago(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarMetodosPago.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarmetodosPago.jsp").forward(request, response);
         } else if (accion.equals("GestionarPago")) {
             mostrarPagos(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarPago.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarpago.jsp").forward(request, response);
         } else if (accion.equals("GestionarVenta")) {
             mostrarVentas(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarVenta.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarventa.jsp").forward(request, response);
         } else if (accion.equals("GestionarDetalleVentas")) {
             mostrarCarrito(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarCarritos.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionarcarrito.jsp").forward(request, response);
         } else if (accion.equals("GestionarCarritos")) {
             mostrarDetallesVenta(request, response);
-            request.getRequestDispatcher("/CRUD/Gestionar/GestionarDetalleVentas.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/gestionardetalleventas.jsp").forward(request, response);
         } else if (accion.equals("AgregarEmpleado")) {
             if (request.getSession().getAttribute("exito") != null) {
                 request.setAttribute("exito", request.getSession().getAttribute("exito"));
                 request.getSession().removeAttribute("exito");
             }
-            request.getRequestDispatcher("CRUD/Agregar/AgregarEmpleado.jsp").forward(request, response);
+            request.getRequestDispatcher("/crud/gestionar/agregarempleado.jsp").forward(request, response);
         } else if (accion.equals("AgregarCargo")) {
             if (request.getSession().getAttribute("exito") != null) {
                 request.setAttribute("exito", request.getSession().getAttribute("exito"));
                 request.getSession().removeAttribute("exito");
             }
-            request.getRequestDispatcher("CRUD/Agregar/AgregarCargo.jsp").forward(request, response);
+            request.getRequestDispatcher("crud/agregar/agregarcargo.jsp").forward(request, response);
         } else if (accion.equals("AgregarUsuario")) {
             if (request.getSession().getAttribute("exito") != null) {
                 request.setAttribute("exito", request.getSession().getAttribute("exito"));
                 request.getSession().removeAttribute("exito");
             }
-            request.getRequestDispatcher("CRUD/Agregar/AgregarUsuario.jsp").forward(request, response);
+            request.getRequestDispatcher("rud/agregar/agregarusuario.jsp").forward(request, response);
         }else if (accion.equals("AgregarCliente")) {
             if (request.getSession().getAttribute("exito") != null) {
                 request.setAttribute("exito", request.getSession().getAttribute("exito"));
                 request.getSession().removeAttribute("exito");
             }
-            request.getRequestDispatcher("CRUD/Agregar/AgregarCliente.jsp").forward(request, response);
+            request.getRequestDispatcher("rud/agregar/agregarcliente.jsp").forward(request, response);
         }
         
         
@@ -1120,34 +1023,34 @@ public class Servletprincipal extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarempleados");
         } else if (accion.equals("eliminarempleado")) {
             eliminarEmpleado(request, response);
-            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=Gestionarempleados");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarempleados");
         } else if (accion.equals("AgregarCargo")) {
             agregarCargo(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=AgregarCargo");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=agregarcargo");
         } else if (accion.equals("ModificarCargo")) {
             modificarCargo(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=GestionarCargo");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarcargo");
         } else if (accion.equals("EliminarCargo")) {
             eliminarEmpleado(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=GestionarCargo");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarcargo");
         } else if (accion.equals("AgregarUsuario")) {
             agregarUsuario(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=AgregarUsuario");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=agregarusuario");
         } else if (accion.equals("ModificarUsuario")) {
             modificarUsuario(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=GestionarUsuarios");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarusuarios");
         } else if (accion.equals("EliminarUsuario")) {
             eliminarUsuario(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=GestionarUsuarios");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarusuarios");
         }else if (accion.equals("AgregarCliente")) {
             agregarCliente(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=AgregarCliente");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=agregarcliente");
         } else if (accion.equals("ModificarCliente")) {
             modificarCliente(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=GestionarClientes");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarclientes");
         } else if (accion.equals("EliminarCliente")) {
             eliminarCliente(request, response);
-            response.sendRedirect(request.getContextPath() + "/ServletPrincipal?accion=GestionarClientes");
+            response.sendRedirect(request.getContextPath() + "/Servletprincipal?accion=gestionarclientes");
         }
 
     }
