@@ -14,7 +14,7 @@
 
             <div>
                 <button class="btn btn-primary mb-3" onclick="regresar()">Regresar</button>    
-                <a class="btn btn-primary mb-3" href="/Tienda?accion=agregarcargo">Agregar Cargo</a><br><br>
+                <a class="btn btn-primary mb-3" href="/Final/ServletPrincipal?accion=agregarcargo">Agregar Cargo</a><br><br>
             </div>
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -27,17 +27,17 @@
                 <tbody>
                     <c:forEach items="${listaCargos}" var="item">
                         <tr>
-                            <td><c:out value="${item.id_cargo}" /></td>
+                            <td><c:out value="${item.ID_Cargo}" /></td>
                             <td><c:out value="${item.Nombre_Cargo}" /></td>
                             <td class="text-center">
-                                <form method="POST" action="/Tienda/crud/modificar/modificarcargo.jsp">
-                                    <input type="hidden" name="id_cargo" value="${item.id_cargo}" />
-                                    <input type="hidden" name="nombre_cargo" value="${item.nombre_cargo}" />             
+                                <form method="POST" action="/Final/Usuarios/Modificar/modificarcargo.jsp">
+                                    <input type="hidden" name="ID_Cargo" value="${item.ID_Cargo}" />
+                                    <input type="hidden" name="Nombre_Cargo" value="${item.Nombre_Cargo}" />             
                                     <button type="submit" class="btn btn-warning">Modificar</button>
                                 </form>    
-                                <form method="POST" action="/Tienda/cru/eliminar/eliminarcargo.jsp">
-                                    <input type="hidden" name="id_cargo" value="${item.id_cargo}" />
-                                    <input type="hidden" name="nombre_cargo" value="${item.nombre_cargo}" />             
+                                <form method="POST" action="/Final/Usuarios/Eliminar/eliminarcargo.jsp">
+                                    <input type="hidden" name="ID_Cargo" value="${item.ID_Cargo}" />
+                                    <input type="hidden" name="Nombre_Cargo" value="${item.Nombre_Cargo}" />             
                                     <button type="submit" class="m-2 btn btn-danger">Eliminar</button>
                                 </form>
                             </td>

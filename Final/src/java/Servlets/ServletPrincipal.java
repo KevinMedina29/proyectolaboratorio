@@ -33,8 +33,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class ServletPrincipal extends HttpServlet {
     
-    private final String usuario = "sa";
-    private final String contrasenia = "123456";
+    private final String usuario = "login_admin";
+    private final String contrasenia = "root";
     private final String servidor = "localhost:1433";
     private final String bd = "TiendaLacteos"; 
     String url = "jdbc:sqlserver://"

@@ -9,16 +9,16 @@
     <body>
         <h1>Eliminar Cargo</h1>
         
-        <form method="POST" action="/Tienda/Servleprincipal?accion=eliminarcargos">
+        <form method="POST" action="/Final/ServletPrincipal?accion=eliminarcargos">
             <div>
-                <label>ID.empleado: ${param.id_cargo}</label><br>
-                <label>cargo ${param.id_cargo}</label>
+                <label>ID.empleado: ${param.ID_Cargo}</label><br>
+                <label>cargo ${param.ID_Cargo}</label>
                 
-                <input type="hidden" name="id_cargo" id="id_cargo" value="${param.id_cargo}"><br><br>
+                <input type="hidden" name="ID_Cargo" id="id_cargo" value="${param.ID_Cargo}"><br><br>
                 <input type="submit" value="Eliminar" onclick="return confirm('¿Desea eliminar el cargo?')" /><br><br>
             </div>
                 <div>
-                    <a href="/Tienda/?accion=gestionarcargos">Regresar</a><br><br>
+                    <a href="/Final?accion=gestionarcargos">Regresar</a><br><br>
                 </div>
         </form>
     </body>
