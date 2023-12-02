@@ -18,17 +18,17 @@
             </c:if>   
             <h1>Agregar nuevo Cargo</h1>
 
-            <form method="POST" action="/Tienda/Servletprincipal?accion=agregarcargo">
+            <form method="POST" action="/Final/ServletPrincipal?accion=agregarcargo">
                 <div class="mb-3">
-                    <label for="nombre_cargo" class="form-label"> <strong> Cargo: </strong></label>
-                    <input type="text" class="form-control" name="nombre_cargo" id="nombre_cargo" required />
+                    <label for="Nombre_Cargo" class="form-label"> <strong> Cargo: </strong></label>
+                    <input type="text" class="form-control" name="Nombre_Cargo" id="Nombre_Cargo" required />
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Registrar" onclick="return confirm('¿Desea registrar el Cargo?')" /><br><br>
             </form>
 
             <div class="mt-3">
-                <a href="/Tienda/?accion=gestionarcargos" class="btn btn-secondary">Regresar</a>
+                <a href="/Final?accion=gestionarcargos" class="btn btn-secondary">Regresar</a>
             </div>            
 
         </div>
